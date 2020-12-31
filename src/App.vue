@@ -3,16 +3,18 @@
     <div id="banner">
       <h1>Cracked Spines Project</h1>
       <div id="buttons">
-        <button 
-        v-for="tab in tabs" 
-        :key="tab"
-        :class="['tab-button', { active: currentTab === tab }]"
-        @click="currentTab = tab"
-        > {{ tab }}</button>
+        <button
+          v-for="tab in tabs"
+          :key="tab.name"
+          :class="['tab-button', { active: currentTab.name === tab.name }]"
+          @click="currentTab = tab"
+        >
+          {{ tab.name }}
+        </button>
       </div>
     </div>
     <keep-alive>
-      <component :is="currentTabComponent"></component>
+      <component :is="currentTab.component"></component>
     </keep-alive>
   </div>
 </template>
@@ -21,7 +23,7 @@
 import Home from "./components/Home.vue";
 import Search from "./components/Search.vue";
 import About from "./components/About.vue";
-import SubmitForm from "./compnents/SubmitForm.vue";
+import SubmitForm from "./components/SubmitForm.vue";
 
 export default {
   name: "App",
@@ -29,26 +31,45 @@ export default {
     Home: Home,
     Search: Search,
     About: About,
-    SubmitForm: SubmitForm
+    SubmitForm: SubmitForm,
   },
   data() {
     return {
-      currentTab: Home,
-      tabs: [Home, Search, About, SubmitForm]
-    }
+      currentTab: [
+        {
+          name: "Home",
+          component: Home,
+        },
+      ],
+      tabs: [
+        {
+          name: "Home",
+          component: Home,
+        },
+        {
+          name: "Search",
+          component: Search,
+        },
+        {
+          name: "About",
+          component: About,
+        },
+        { name: "Submit", component: SubmitForm },
+      ],
+    };
   },
-  computed: {
-    currentTabComponent() {
-      return tab
-    }
-  }
 };
 </script>
 
 <style>
-.banner {
-    text-align: center;
-    margin: auto 0;
-    width: 50%;
+h1 {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+#buttons {
+  text-align: center;
+  margin: auto;
 }
 </style>
