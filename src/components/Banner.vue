@@ -17,4 +17,9 @@ export default {
 </script>
 
 <style>
+.banner {
+    text-align: center;
+    margin: auto 0;
+    width: 50%;
+}
 </style>
