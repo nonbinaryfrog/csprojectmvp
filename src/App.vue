@@ -1,33 +1,54 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <div>
-    <Banner />
-    <Home />
+    <div id="banner">
+      <h1>Cracked Spines Project</h1>
+      <div id="buttons">
+        <button 
+        v-for="tab in tabs" 
+        :key="tab"
+        :class="['tab-button', { active: currentTab === tab }]"
+        @click="currentTab = tab"
+        > {{ tab }}</button>
+      </div>
+    </div>
+    <keep-alive>
+      <component :is="currentTabComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import Banner from './components/Banner.vue'
-import Home from './components/Home.vue'
+import Home from "./components/Home.vue";
+import Search from "./components/Search.vue";
+import About from "./components/About.vue";
+import SubmitForm from "./compnents/SubmitForm.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Banner,
-    Home
+    Home: Home,
+    Search: Search,
+    About: About,
+    SubmitForm: SubmitForm
+  },
+  data() {
+    return {
+      currentTab: Home,
+      tabs: [Home, Search, About, SubmitForm]
+    }
+  },
+  computed: {
+    currentTabComponent() {
+      return tab
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.banner {
+    text-align: center;
+    margin: auto 0;
+    width: 50%;
 }
 </style>
