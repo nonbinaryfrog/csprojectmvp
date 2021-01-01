@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    name: "Home",
     props: {
         // Add props here
     }

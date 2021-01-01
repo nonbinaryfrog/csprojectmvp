@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    name: "Search",
     props: {
         // Add props here
     }
