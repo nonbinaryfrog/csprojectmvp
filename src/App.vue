@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div id="banner">
       <h1>Cracked Spines Project</h1>
       <div id="buttons">
@@ -13,10 +12,7 @@
         </button>
       </div>
     </div>
-    <keep-alive>
       <component :is="currentTab.component"></component>
-    </keep-alive>
-  </div>
 </template>
 
 <script>
