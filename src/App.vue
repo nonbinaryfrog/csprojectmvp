@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <!-- Depending on which router-link is clicked, the router view will change -->
+  <!-- Depending on which router-link is clicked, the router-view will change -->
   <router-view></router-view>
 </template>
 
@@ -19,7 +19,16 @@ import Home from "./components/Home.vue";
 import Search from "./components/Search.vue";
 import About from "./components/About.vue";
 import SubmitForm from "./components/SubmitForm.vue";
+import { createRouter } from "vue-router";
 
+const routes = [
+  { path: "", component: Home },
+  { path: "/Search", component: Search },
+  { path: "/About", component: About },
+  { path: "/Submit", component: SubmitForm },
+];
+
+const router = createRouter({ routes });
 
 export default {
   name: "App",
@@ -29,18 +38,7 @@ export default {
     About: About,
     SubmitForm: SubmitForm,
   },
-  routes: [
-        { path: '', component: Home },
-        { path: '/Search', component: Search },
-        { path: '/About', component: About },
-        { path: '/Submit', component: SubmitForm }
-        ],
-
-  data() {
-    return {
-      
-    };
-  },
+  router,
 };
 </script>
 
