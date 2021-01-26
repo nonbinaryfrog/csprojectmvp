@@ -1,18 +1,17 @@
 <template>
-    <div id="banner">
-      <h1>Cracked Spines Project</h1>
-      <div id="buttons">
-        <button
-          v-for="tab in tabs"
-          :key="tab.name"
-          :class="['tab-button', { active: currentTab.name === tab.name }]"
-          @click="currentTab = tab"
-        >
-          {{ tab.name }}
-        </button>
-      </div>
+  <div id="banner">
+    <h1>Cracked Spines Project</h1>
+    <div id="navBar">
+      <!-- These router-links will route to the components -->
+      <router-link to="">Home</router-link>
+      <router-link to="/Search">Search</router-link>
+      <router-link to="/About">About</router-link>
+      <router-link to="/Submit">Submit Form</router-link>
     </div>
-      <component :is="currentTab.component"></component>
+  </div>
+
+  <!-- Depending on which router-link is clicked, the router view will change -->
+  <router-view></router-view>
 </template>
 
 <script>
@@ -20,6 +19,7 @@ import Home from "./components/Home.vue";
 import Search from "./components/Search.vue";
 import About from "./components/About.vue";
 import SubmitForm from "./components/SubmitForm.vue";
+
 
 export default {
   name: "App",
@@ -29,29 +29,16 @@ export default {
     About: About,
     SubmitForm: SubmitForm,
   },
+  routes: [
+        { path: '', component: Home },
+        { path: '/Search', component: Search },
+        { path: '/About', component: About },
+        { path: '/Submit', component: SubmitForm }
+        ],
+
   data() {
     return {
-      currentTab: [
-        {
-          name: "Home",
-          component: Home,
-        },
-      ],
-      tabs: [
-        {
-          name: "Home",
-          component: Home,
-        },
-        {
-          name: "Search",
-          component: Search,
-        },
-        {
-          name: "About",
-          component: About,
-        },
-        { name: "Submit", component: SubmitForm },
-      ],
+      
     };
   },
 };
@@ -64,7 +51,7 @@ h1 {
   width: 50%;
 }
 
-#buttons {
+#navBar {
   text-align: center;
   margin: auto;
 }
