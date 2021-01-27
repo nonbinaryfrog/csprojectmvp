@@ -2,10 +2,10 @@ import Home from "../components/Home.vue";
 import Search from "../components/Search.vue";
 import About from "../components/About.vue";
 import SubmitForm from "../components/SubmitForm.vue";
-import PBGenres from "../components/PBGenres.vue";
-import MGGenres from "../components/MGGenres.vue";
-import YAGenres from "../components/YAGenres.vue";
-import AdultGenres from "../components/AdultGenres.vue";
+import PBGenres from "../components/views/PBGenres.vue";
+import MGGenres from "../components/views/MGGenres.vue";
+import YAGenres from "../components/views/YAGenres.vue";
+import AdultGenres from "../components/views/AdultGenres.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
 const routes = [
