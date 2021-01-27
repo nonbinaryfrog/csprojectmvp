@@ -1,6 +1,6 @@
 <template>
   <div>
-    Middle Grade: Choose a subgenre!
+    <h2>Middle Grade: Choose a subgenre!</h2>
   </div>
 </template>
 

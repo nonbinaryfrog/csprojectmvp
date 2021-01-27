@@ -1,6 +1,6 @@
 <template>
   <div>
-    Picture Books: Choose a subgenre!
+    <h2>Picture Books: Choose a subgenre!</h2>
   </div>
 </template>
 

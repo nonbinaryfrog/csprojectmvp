@@ -1,6 +1,6 @@
 <template>
   <div>
-    Adult: Choose a subgenre!
+    <h2>Adult: Choose a subgenre!</h2>
   </div>
 </template>
 
