@@ -16,7 +16,7 @@
         <!-- <input type="text" placeholder="Enter book title" v-model="submission.bookTitle" /> -->
       </div>
 
-      <button class="positive ui button">Submit</button>
+      <button>Submit</button>
     </form>
   </div>
 </template>
