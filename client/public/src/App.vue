@@ -15,6 +15,16 @@
 </template>
 
 <script>
+import BookData from "./BookData"
+
+export default {
+  name: "app",
+  data() {
+    return {
+      allBooks: BookData,
+    };
+  },
+};
 </script>
 
 <style>
