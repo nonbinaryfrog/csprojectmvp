@@ -1,11 +1,11 @@
-import Home from "../client/src/components/Home.vue";
-import Search from "../client/src/components/Search.vue";
-import About from "../client/src/components/About.vue";
-import SubmitForm from "../client/src/components/SubmitForm.vue";
-import PBGenres from "../client/src/components/views/PBGenres.vue";
-import MGGenres from "../client/src/components/views/MGGenres.vue";
-import YAGenres from "../client/src/components/views/YAGenres.vue";
-import AdultGenres from "../client/src/components/views/AdultGenres.vue";
+import Home from "../components/Home.vue";
+import Search from "../components/Search.vue";
+import About from "../components/About.vue";
+import SubmitForm from "../components/SubmitForm.vue";
+import PBGenres from "../components/views/PBGenres.vue";
+import MGGenres from "../components/views/MGGenres.vue";
+import YAGenres from "../components/views/YAGenres.vue";
+import AdultGenres from "../components/views/AdultGenres.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
 const routes = [
