@@ -1,3 +1,5 @@
+// Because MongoDB will not be added yet, this file will
+// likely be unused by the app
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;

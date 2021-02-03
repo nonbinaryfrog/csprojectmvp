@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2> Mission Statement </h2>
-        <h1> 
+        <h3> 
             The Cracked Spines Project is a library database for readers 
             to find and support marginalized authors of various genres. For 
             this particular project, ‘marginalized’ is used to only mean people 
@@ -11,7 +11,7 @@
             promoting white authors. The CSP therefore aims to be an easily 
             accessible directory for those interested in reading and supporting 
             marginalized authors of color. 
-        </h1>
+        </h3>
     </div>
 </template>
 

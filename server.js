@@ -1,17 +1,18 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 global.Task = require('./api/models/model');
 const routes = require('./api/routes/routes');
 
-mongoose.Promise = global.Promise;
-mongoose.set('useFindAndModify', false);
-mongoose.connect(
-  'mongodb://localhost/CSProjectDB',
-  { useNewUrlParser: true }
-);
+// To use for connecting to the MongoDB database
+// mongoose.Promise = global.Promise;
+// mongoose.set('useFindAndModify', false);
+// mongoose.connect(
+//   'mongodb://localhost/CSProjectDB',
+//   { useNewUrlParser: true }
+// );
 
 const port = process.env.PORT || 3000;
 const app = express();

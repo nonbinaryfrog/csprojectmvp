@@ -1,3 +1,6 @@
+// because MongoDB will not be added, this file will
+//likely not be used by the app
+
 const mongoose = require('mongoose');
 const book = mongoose.model('book');
 
