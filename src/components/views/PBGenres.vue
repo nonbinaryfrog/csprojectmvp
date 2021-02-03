@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="book-options">
     <h2>Picture Books: Choose a subgenre!</h2>
+    <button> Get me all the picture books! </button>
   </div>
 </template>
 
@@ -13,4 +14,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.book-options {
+  margin: auto;
+  width: 50%;
+}
+</style>

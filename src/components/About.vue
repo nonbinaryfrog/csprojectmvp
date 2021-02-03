@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="about-page">
         <h2> Mission Statement </h2>
         <h3> 
             The Cracked Spines Project is a library database for readers 
@@ -22,5 +22,8 @@ export default {
 </script>
 
 <style>
-
+.about-page {
+  margin: auto;
+  width: 50%;
+}
 </style>

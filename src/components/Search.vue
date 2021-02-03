@@ -1,5 +1,5 @@
 <template>
-    <div>This is the search page.</div>
+    <div>Under Construction! This will be where the search page goes.</div>
 </template>
 
 <script>

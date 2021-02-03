@@ -35,7 +35,10 @@ h1 {
 }
 
 #navBar {
-  text-align: center;
-  margin: auto;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-bottom: 20px;  
+  padding-left: 20px;
 }
 </style>

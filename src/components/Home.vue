@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="genrecards">
     <div class="genre-card">
       <router-link to="/PB">Picture Books</router-link>
     </div>
@@ -11,6 +12,7 @@
     </div>
     <div class="genre-card">
       <router-link to="/Adult">Adult</router-link>
+    </div>
     </div>
     <router-view></router-view>
   </div>
@@ -25,4 +27,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.genrecards {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+</style>
