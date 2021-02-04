@@ -1,10 +1,10 @@
 <template>
   <div v:for="book in books" :key="book.title">
-    <p>Book Title:</p> 
-    <p>Author:</p>
-    <p>Genre:</p>
-    <p>Subgenres:</p>
-    <p>Description:</p>
+    <p>Book Title: {{ book.title }} </p> 
+    <p>Author: {{ book.author }} </p>
+    <p>Genre: {{ book.genre }} </p>
+    <p>Subgenres: {{ book.subgenre }}</p>
+    <p>Description: {{ book.description }} </p>
 
   </div>
 </template>
