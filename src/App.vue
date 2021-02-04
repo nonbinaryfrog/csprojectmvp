@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       allBooks: BookData,
+      someBooks: BookData[0],
     };
   },
 };

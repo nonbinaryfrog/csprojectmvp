@@ -11,9 +11,7 @@
 <script>
 export default {
   name: "YAGenres",
-  props: {
-    // Add props here
-  },
+  props: ["books"],
 };
 </script>
 
