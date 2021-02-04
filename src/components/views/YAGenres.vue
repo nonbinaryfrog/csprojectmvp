@@ -1,17 +1,25 @@
 <template>
   <div class="book-options">
     <h2>Young Adult: Choose a subgenre!</h2>
+    <div class="genre-buttons">
     <button id="get-all-ya"> Get me everything! </button>
     <button @click="getBook" class="subgenre" id="fantasy">Fantasy</button>
     <button class="subgenre" id="rom-com">Rom-com</button>
     <button class="subgenre" id="horror">Horror</button>
+    </div>
+    <!-- <book-card-view :books="books"/> -->
   </div>
 </template>
 
 <script>
+// import BookCardView from './BookCardView';
+
 export default {
   name: "YAGenres",
   props: ["books"],
+  components: {
+    // BookCardView,
+  },
   methods: {
     getBook() {
       console.log("Button pressed!")
