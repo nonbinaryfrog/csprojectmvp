@@ -63,7 +63,7 @@ export default [
     title: "Blazewrath Games",
     author: ["Amparo Ortiz"],
     genre: "YA",
-    subgenre: ["Fantasy Fiction"],
+    subgenre: ["Fantasy"],
     description: "Lana Torres has always preferred dragons to people. In a few weeks, sixteen countries will compete in the Blazewrath World Cup, a tournament where dragons and their riders fight for glory in a dangerous relay. Lana longs to represent her native Puerto Rico in their first ever World Cup appearance, and when Puerto Rico’s Runner—the only player without a dragon steed—is kicked off the team, she’s given the chance. But when she discovers that a former Blazewrath superstar has teamed up with the Sire—a legendary dragon who’s cursed into human form—the safety of the Cup is jeopardized. The pair are burning down dragon sanctuaries around the world and refuse to stop unless the Cup gets cancelled. All Lana wanted was to represent her country. Now, to do that, she’ll have to navigate an international conspiracy that’s deadlier than her beloved sport.",
   },
   {
