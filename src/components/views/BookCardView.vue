@@ -1,5 +1,5 @@
 <template>
-  <div v:for="book in books" :key="book.title">
+  <div v-for="book in books" :key="book.title">
     <p>Book Title: {{ book.title }} </p> 
     <p>Author: {{ book.author }} </p>
     <p>Genre: {{ book.genre }} </p>
