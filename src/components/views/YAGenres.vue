@@ -1,7 +1,10 @@
 <template>
   <div class="book-options">
     <h2>Young Adult: Choose a subgenre!</h2>
-    <button> Get me everything! </button>
+    <button id="get-all-ya"> Get me everything! </button>
+    <button class="subgenre" id="fantasy">Fantasy</button>
+    <button class="subgenre" id="rom-com">Rom-com</button>
+    <button class="subgenre" id="horror">Horror</button>
   </div>
 </template>
 
@@ -22,5 +25,10 @@ export default {
 
 button {
   margin-left: 25%;
+}
+
+.subgenre {
+  display: grid;
+  margin: 20px;
 }
 </style>
