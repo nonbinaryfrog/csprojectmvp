@@ -1,4 +1,6 @@
 # csproject
+Cracked Spines Project is a database written by
+marginalized authors of color.
 
 ## Project setup
 ```
