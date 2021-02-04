@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <h2>Book Card</h2>
+  <div v:for="book in books" :key="book.title">
+    <p>Book Title:</p> 
+    <p>Author:</p>
+    <p>Genre:</p>
+    <p>Subgenres:</p>
+    <p>Description:</p>
+
   </div>
 </template>
 
 <script>
 export default {
   name: "BookCardVue",
-  props: {
-    // Add props here
-  },
+  props: ["books"],
 };
 </script>
 
