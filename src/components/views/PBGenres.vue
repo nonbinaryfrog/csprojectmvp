@@ -8,9 +8,7 @@
 <script>
 export default {
   name: "PBGenres",
-  props: {
-    // Add props here
-  },
+  props: ["books"],
 };
 </script>
 
