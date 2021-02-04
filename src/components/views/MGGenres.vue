@@ -1,7 +1,7 @@
 <template>
   <div class="book-options">
     <h2>Middle Grade: Choose a subgenre!</h2>
-    <button> Get me all the middle grade books! </button>
+    <button> Get me everything! </button>
   </div>
 </template>
 
@@ -18,5 +18,9 @@ export default {
 .book-options {
   margin: auto;
   width: 50%;
+}
+
+button {
+  margin-left: 25%;
 }
 </style>

@@ -2,7 +2,8 @@
   <div>
     <div class="genrecards">
     <div class="genre-card">
-      <router-link to="/PB">Picture Books</router-link>
+      <!-- look into programmatic navigation to switch from the buttons to the components -->
+      <router-link :to="({ path: '/PB', component: PBGenres })">Picture Books</router-link>
     </div>
     <div class="genre-card">
       <router-link to="/MG">Middle Grade</router-link>
@@ -19,6 +20,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Home",
   props: {
