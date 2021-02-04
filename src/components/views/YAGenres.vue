@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import BookData from '../../BookData';
 import BookCardView from './BookCardView';
 
 export default {
@@ -22,15 +23,19 @@ export default {
     BookCardView,
   },
   data() {
-    // store YA books and subgenres in here first
+    return {
+    // store YA books and subgenres in here first        
+      someBooks: BookData[0],
+    }
   },
   methods: {
     getBook() {
       console.log("Button pressed!")
     },
     getEverything(){
-      // books.map((b) => b.genre === id);
-      console.log("Get everything!")
+      // return all of the YA books
+      let yaBooks = BookData.filter((b) => b.genre === "YA");
+      console.log(yaBooks);
     }
   }
 };
