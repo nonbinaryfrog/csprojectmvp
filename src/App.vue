@@ -11,7 +11,7 @@
   </div>
 
   <!-- Depending on which router-link is clicked, the router-view will change -->
-  <router-view></router-view>
+  <router-view :books="allBooks"></router-view>
 </template>
 
 <script>
@@ -22,7 +22,6 @@ export default {
   data() {
     return {
       allBooks: BookData,
-      someBooks: BookData[0],
     };
   },
 };

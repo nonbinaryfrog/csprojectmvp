@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "BookCardVue",
+  name: "BookCardView",
   props: ["books"],
 };
 </script>

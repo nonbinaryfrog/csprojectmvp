@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BookData from '../../BookData';
+import BookData from '../../BookData'
 import BookCardView from './BookCardView';
 
 export default {
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
     // store YA books and subgenres in here first        
-      yaBooks: BookData['YA'],
+      yaBooks: BookData,
     }
   },
   methods: {
