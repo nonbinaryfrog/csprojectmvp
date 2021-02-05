@@ -25,7 +25,7 @@ export default {
   data() {
     return {
     // store YA books and subgenres in here first        
-      someBooks: BookData[0],
+      yaBooks: BookData['YA'],
     }
   },
   methods: {
@@ -36,6 +36,8 @@ export default {
       // return all of the YA books
       let yaBooks = BookData.filter((b) => b.genre === "YA");
       console.log(yaBooks);
+      // send YA books data to the parent component
+      // this.$emit(yaBooks);
     }
   }
 };
