@@ -25,17 +25,16 @@ export default {
   data() {
     return {
     // store YA books and subgenres in here first        
-      yaBooks: BookData,
+      yaBooks: BookData['YA'],
     }
   },
   methods: {
     getBook() {
       console.log("Button pressed!")
     },
-    getEverything(){
+    getEverything() {
       // return all of the YA books
-      let yaBooks = BookData.filter((b) => b.genre === "YA");
-      console.log(yaBooks);
+      console.log(this.yaBooks);
       // send YA books data to the parent component
       // this.$emit(yaBooks);
     }
