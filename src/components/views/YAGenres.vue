@@ -27,7 +27,7 @@ export default {
     },
     getEverything() {
       // send info to console to see what happens 
-      // console.log(this.books);      
+      console.log(this.books);      
       // return this.books;
     }
   }
@@ -49,4 +49,9 @@ button {
   display: grid;
   margin: 20px;
 }
+
+[v-cloak] {
+  display: none;
+}
+
 </style>

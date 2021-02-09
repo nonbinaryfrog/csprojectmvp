@@ -9,6 +9,9 @@ import AdultGenres from "../components/views/AdultGenres.vue";
 import BookData from "../BookData";
 import { createWebHistory, createRouter } from "vue-router";
 
+// filter data based on genres first
+let yaBooks = BookData.filter(book => book.genre === 'YA')
+
 const routes = [
   // nested routes for genres in home
   { path: "/", component: Home,
@@ -24,7 +27,7 @@ const routes = [
     {
       path: '/YA',
       component: YAGenres,
-      props: { books: BookData},
+      props: { books: yaBooks },
     },
     {
       path: '/Adult',
