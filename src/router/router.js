@@ -6,6 +6,7 @@ import PBGenres from "../components/views/PBGenres.vue";
 import MGGenres from "../components/views/MGGenres.vue";
 import YAGenres from "../components/views/YAGenres.vue";
 import AdultGenres from "../components/views/AdultGenres.vue";
+import BookData from "../BookData";
 import { createWebHistory, createRouter } from "vue-router";
 
 const routes = [
@@ -22,7 +23,8 @@ const routes = [
     },
     {
       path: '/YA',
-      component: YAGenres
+      component: YAGenres,
+      props: { books: BookData},
     },
     {
       path: '/Adult',

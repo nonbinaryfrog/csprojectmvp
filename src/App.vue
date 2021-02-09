@@ -11,7 +11,7 @@
   </div>
 
   <!-- Depending on which router-link is clicked, the router-view will change -->
-  <router-view :books="allBooks"></router-view>
+  <router-view :books="allBooks" exact></router-view>
 </template>
 
 <script>

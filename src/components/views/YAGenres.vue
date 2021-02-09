@@ -27,8 +27,8 @@ export default {
     },
     getEverything() {
       // send info to console to see what happens 
-      console.log(this.books);      
-      return this.books;
+      // console.log(this.books);      
+      // return this.books;
     }
   }
 };
