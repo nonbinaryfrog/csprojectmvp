@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import BookData from '../../BookData'
 import BookCardView from './BookCardView';
 
 export default {
@@ -22,26 +21,14 @@ export default {
   components: {
     BookCardView,
   },
-  data() {
-    return {
-    // store YA books and subgenres in here first        
-      yaBooks: BookData['YA'],
-    }
-  },
   methods: {
     getBook() {
       console.log("Button pressed!")
     },
     getEverything() {
-      // return all of the YA books
-      let yaBooks = this.yaBooks;
-
       // send info to console to see what happens 
-      console.log(yaBooks);      
-      return yaBooks;
-
-      // send YA books data to the parent component
-      // this.$emit(yaBooks);
+      console.log(this.books);      
+      return this.books;
     }
   }
 };
