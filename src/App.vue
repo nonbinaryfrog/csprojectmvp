@@ -3,10 +3,10 @@
     <h1>Cracked Spines Project</h1>
     <div id="navBar">
       <!-- These router-links will route to the components -->
-      <router-link to="/">Home</router-link>
-      <router-link to="/Search">Search</router-link>
-      <router-link to="/About">About</router-link>
-      <router-link to="/Submit">Submit Form</router-link>
+      <router-link class="link" to="/">Home</router-link>
+      <router-link class="link" to="/Search">Search</router-link>
+      <router-link class="link" to="/About">About</router-link>
+      <router-link class="link" to="/Submit">Submit Form</router-link>
     </div>
   </div>
 
@@ -51,11 +51,15 @@ h1 {
   padding-top: 10px;
   border: 2px solid black;
   font-family: 'Kranky', cursive;
+  background-image: url('./assets/librarybackground.jpg');
 }
 #App {
-  background-image: url('./assets/librarybackground.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.link {
+  color: white;
 }
 
 </style>

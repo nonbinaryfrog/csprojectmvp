@@ -1,43 +1,43 @@
 <template>
   <div>
-    <div id="genrecards">
-
-    <div class="genre-card">
-      <!-- look into programmatic navigation to switch from the buttons to the components -->
-      <router-link to="/PB">Picture Books</router-link>
+    <div id="genre-btns">
+      <button class="btns" @click="getPB">Picture Books</button>
+      <button class="btns" @click="getMG">Middle Grade</button>
+      <button class="btns" @click="getYA">Yound Adult</button>
+      <button class="btns" @click="getAdult">Adult</button>
     </div>
 
-    <div class="genre-card">
-      <router-link to="/MG">Middle Grade</router-link>
-    </div>
-
-    <div class="genre-card">
-      <router-link to="/YA">Young Adult</router-link>
-    </div>
-
-    <div class="genre-card">
-      <router-link to="/Adult">Adult</router-link>
-    </div>
-
-    </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Home",
   props: {
     // Add props here
   },
+  methods: {
+    getPB() {
+      this.$router.push("/PB");
+    },
+    getMG() {
+      this.$router.push("/MG");
+    },
+    getYA() {
+      this.$router.push("/YA");
+    },
+    getAdult() {
+      this.$router.push("/Adult");
+    },
+  },
 };
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Kranky&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Kranky&display=swap");
 
-#genrecards {
+#genre-btns {
   margin: auto;
   width: 50%;
   display: grid;
@@ -45,17 +45,20 @@ export default {
   padding-bottom: 20px;
   padding-left: 20px;
   padding-top: 15px;
-  font-family: 'Kranky', cursive;
+  font-family: "Kranky", cursive;
 }
 
-.genre-card {
-  border: solid 2px black;
+.btns {
+  border: solid 1px black;
   border-radius: 15px;
   width: 75%;
   height: 50px;
-  padding-top: 30px;
   text-align: center;
   margin-bottom: 10px;
+  background-color: #fbdcc4;
 }
 
+button:hover {
+  color: white;
+}
 </style>
