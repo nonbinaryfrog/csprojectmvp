@@ -36,6 +36,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
+
 .book-options {
   margin: auto;
   width: 50%;
@@ -43,15 +45,12 @@ export default {
 
 button {
   margin-left: 25%;
+  font-family: 'Coming Soon', cursive;
 }
 
 .subgenre {
   display: grid;
   margin: 20px;
-}
-
-[v-cloak] {
-  display: none;
 }
 
 </style>

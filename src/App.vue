@@ -28,10 +28,17 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Kranky&display=swap');
+
 h1 {
   text-align: center;
   margin: auto;
   width: 50%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'Fredericka the Great', cursive;
+  color: #7d0633;
 }
 
 #navBar {
@@ -40,5 +47,10 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
   padding-bottom: 20px;  
   padding-left: 20px;
+  text-align: center;
+  padding-top: 10px;
+  border: 2px solid black;
+  font-family: 'Kranky', cursive;
 }
+
 </style>
