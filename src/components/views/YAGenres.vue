@@ -7,7 +7,6 @@
     <button class="subgenre" id="rom-com">Rom-com</button>
     <button class="subgenre" id="horror">Horror</button>
     </div>
-    <!-- Need to debug or change the code below so that the component is rendered -->
     <book-card-view :books="books"/>
   </div>
 </template>

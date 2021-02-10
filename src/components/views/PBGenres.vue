@@ -2,13 +2,19 @@
   <div class="book-options">
     <h2>Picture Books: Choose a subgenre!</h2>
     <button> Get me everything! </button>
+    <book-card-view :books="books"/>
   </div>
 </template>
 
 <script>
+import BookCardView from './BookCardView';
+
 export default {
   name: "PBGenres",
   props: ["books"],
+  components: {
+    BookCardView,
+  }
 };
 </script>
 
@@ -20,5 +26,6 @@ export default {
 
 button {
   margin-left: 25%;
+  margin-bottom: 15px;
 }
 </style>

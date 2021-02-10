@@ -10,7 +10,10 @@ import BookData from "../BookData";
 import { createWebHistory, createRouter } from "vue-router";
 
 // filter data based on genres first
-let yaBooks = BookData.filter(book => book.genre === 'YA')
+let pbBooks = BookData.filter(book => book.genre === 'PB');
+let mgBooks = BookData.filter(book => book.genre === 'MG');
+let yaBooks = BookData.filter(book => book.genre === 'YA');
+let adultBooks = BookData.filter(book => book.genre === 'A');
 
 const routes = [
   // nested routes for genres in home
@@ -18,11 +21,13 @@ const routes = [
   children: [
     {
       path: '/PB',
-      component: PBGenres
+      component: PBGenres,
+      props: { books: pbBooks },
     },
     {
       path: '/MG',
-      component: MGGenres
+      component: MGGenres,
+      props: { books: mgBooks },
     },
     {
       path: '/YA',
@@ -31,7 +36,8 @@ const routes = [
     },
     {
       path: '/Adult',
-      component: AdultGenres
+      component: AdultGenres,
+      props: { books: adultBooks },
     }
   ]
 

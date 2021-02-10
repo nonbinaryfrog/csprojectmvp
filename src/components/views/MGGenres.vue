@@ -1,15 +1,19 @@
 <template>
   <div class="book-options">
     <h2>Middle Grade: Choose a subgenre!</h2>
-    <button> Get me everything! </button>
+    <button>Get me everything!</button>
+    <book-card-view :books="books" />
   </div>
 </template>
 
 <script>
+import BookCardView from "./BookCardView";
+
 export default {
   name: "MGGenres",
-  props: {
-    // Add props here
+  props: ["books"],
+  components: {
+    BookCardView,
   },
 };
 </script>
@@ -22,5 +26,6 @@ export default {
 
 button {
   margin-left: 25%;
+  margin-bottom: 15px;
 }
 </style>
