@@ -1,5 +1,5 @@
 <template>
-    <div>Under Construction! This will be where the search page goes.</div>
+    <div id="search">Under Construction! This will be where the search page goes.</div>
 </template>
 
 <script>
@@ -12,5 +12,9 @@ export default {
 </script>
 
 <style>
-
+#search {
+    margin: auto;
+    text-align: center;
+    margin-top: 25px;
+}
 </style>

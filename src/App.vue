@@ -1,6 +1,6 @@
 <template id="App">
   <div id="banner">
-    <h1>Cracked Spines Project</h1>
+    <h1 @click="goHome">Cracked Spines Project</h1>
     <div id="navBar">
       <!-- These router-links will route to the components -->
       <router-link class="link" to="/">Home</router-link>
@@ -11,7 +11,7 @@
   </div>
 
   <!-- Depending on which router-link is clicked, the router-view will change -->
-  <router-view :books="allBooks" exact></router-view>
+  <router-view></router-view>
 </template>
 
 <script>
@@ -24,6 +24,11 @@ export default {
       allBooks: BookData,
     };
   },
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    }
+  }
 };
 </script>
 
@@ -39,6 +44,7 @@ h1 {
   padding-bottom: 15px;
   font-family: 'Fredericka the Great', cursive;
   color: #7d0633;
+  cursor: pointer;
 }
 
 #navBar {

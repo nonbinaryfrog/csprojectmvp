@@ -8,6 +8,7 @@
     </div>
 
     <router-view></router-view>
+
   </div>
 </template>
 
@@ -61,4 +62,5 @@ export default {
 button:hover {
   color: white;
 }
+
 </style>

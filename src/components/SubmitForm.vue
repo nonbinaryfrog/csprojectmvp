@@ -3,17 +3,14 @@
     <form action="#" @submit.prevent="onSubmit">
       <p v-if="errorsPresent" class="error">Please fill out both fields!</p>
 
-      <div>
+      <div class="text-field">
         <div>Author Name</div>
-        <!-- For some reason, uncommenting the code below
-        renders the error 'unexpected mutation of submission prop'
-        figure out what that means and fix it! -->
-        <!-- <input type="text" placeholder="Enter author name" v-model="submission.authorName" /> -->
+        <input type="text" placeholder="Enter author name..." />
       </div>
 
-      <div>
+      <div class="text-field">
         <div>Book Title</div>
-        <!-- <input type="text" placeholder="Enter book title" v-model="submission.bookTitle" /> -->
+        <input type="text" placeholder="Enter book title..." />
       </div>
 
       <button>Submit</button>
@@ -45,9 +42,10 @@ export default {
       // on submit, the information needs to go to the submissions collection
       // so change this when you figure out how to do that!
     onSubmit: function() {
-      if (this.submission.authorName === '' || this.submission.bookTitle === '') {
+      if (this.authorName === '' || this.bookTitle === '') {
         this.errorsPresent = true;
       } else {
+        console.log(this.authorName, this.bookTitle);
         this.$emit('createOrUpdate', this.submission);
       }
     }
@@ -55,4 +53,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+form {
+  margin: auto;
+  width: 50%;
+  margin-top: 15px;
+  text-align: center;
+  font-family: 'Fredericka the Great', cursive;
+}
+
+button {
+  margin-top: 15px;
+}
+
+.text-field {
+  margin: 10px;
+}
+</style>
