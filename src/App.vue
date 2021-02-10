@@ -1,4 +1,4 @@
-<template>
+<template id="App">
   <div id="banner">
     <h1>Cracked Spines Project</h1>
     <div id="navBar">
@@ -51,6 +51,11 @@ h1 {
   padding-top: 10px;
   border: 2px solid black;
   font-family: 'Kranky', cursive;
+}
+#App {
+  background-image: url('./assets/librarybackground.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 </style>
