@@ -45,17 +45,19 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   padding-bottom: 20px;
   padding-left: 20px;
-  padding-top: 15px;
+  padding-top: 30px;
   font-family: "Kranky", cursive;
 }
 
 .btns {
   border: solid 1px black;
   border-radius: 15px;
+  margin: auto;
   width: 75%;
   height: 50px;
   text-align: center;
   margin-bottom: 10px;
+  margin-top: 10px;
   background-color: #fbdcc4;
 }
 
