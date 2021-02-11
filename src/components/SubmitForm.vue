@@ -1,16 +1,17 @@
 <template>
   <div>
     <form action="#" @submit.prevent="onSubmit">
+
       <p v-if="errorsPresent" class="error">Please fill out both fields!</p>
 
       <div class="text-field">
-        <div>Author Name</div>
-        <input type="text" placeholder="Enter author name..." />
+        <label for="authorName">Author Name</label>
+        <input id="authorName" type="text" placeholder="Enter author name..." />
       </div>
 
       <div class="text-field">
-        <div>Book Title</div>
-        <input type="text" placeholder="Enter book title..." />
+        <label for="bookTitle">Book Title</label>
+        <input id="bookTitle" type="text" placeholder="Enter book title..." />
       </div>
 
       <button>Submit</button>
@@ -62,11 +63,25 @@ form {
   font-family: 'Fredericka the Great', cursive;
 }
 
+label {
+  margin-left: 10px;
+}
+
 button {
   margin-top: 15px;
 }
 
 .text-field {
   margin: 10px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+input {
+  width: 50%;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 </style>
