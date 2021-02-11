@@ -6,12 +6,12 @@
 
       <div class="text-field">
         <label for="authorName">Author Name</label>
-        <input id="authorName" type="text" placeholder="Enter author name..." />
+        <input id="authorName" type="text" v-model="authorName" placeholder="Enter author name..." />
       </div>
 
       <div class="text-field">
         <label for="bookTitle">Book Title</label>
-        <input id="bookTitle" type="text" placeholder="Enter book title..." />
+        <input id="bookTitle" type="text" v-model="bookTitle" placeholder="Enter book title..." />
       </div>
 
       <button>Submit</button>
@@ -36,7 +36,9 @@ export default {
   },
   data() {
     return {
-      errorsPresent: false
+      errorsPresent: false,
+      authorName: '',
+      bookTitle: ''
     };
   },
   methods: {
@@ -48,6 +50,8 @@ export default {
       } else {
         console.log(this.authorName, this.bookTitle);
         this.$emit('createOrUpdate', this.submission);
+        // this.authorName = '';
+        // this.bookTitle = '';
       }
     }
   }

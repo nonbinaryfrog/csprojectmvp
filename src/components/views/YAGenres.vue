@@ -3,11 +3,11 @@
     <h2>Young Adult: Choose a subgenre!</h2>
     <div class="genre-buttons">
     <button @click="getEverything" id="get-all-ya"> Get me everything! </button>
-    <button @click="getBook" class="subgenre" id="fantasy">Fantasy</button>
+    <button @click="getBook('fantasy')" class="subgenre" id="Fantasy">Fantasy</button>
     <button class="subgenre" id="rom-com">Rom-com</button>
     <button class="subgenre" id="horror">Horror</button>
     </div>
-    <book-card-view :books="books"/>
+    <book-card-view :books="filteredBooks"/>
   </div>
 </template>
 
@@ -20,15 +20,25 @@ export default {
   components: {
     BookCardView,
   },
-  methods: {
-    getBook() {
-      console.log("Button pressed!")
-    },
-    getEverything() {
-      // send info to console to see what happens 
-      console.log(this.books);      
-      // return this.books;
+  data: () => {
+    return {
+      // initialize filteredBooks as empty
+      filteredBooks: [],
     }
+  },
+  methods: {
+    // take a subgenre argument
+    getBook(subgenre) {
+      // filter the results based on what the subgenre is
+      if (subgenre === 'fantasy') {
+        this.filteredBooks = this.books.filter(books => books.subgenre[0] === subgenre);
+        console.log(this.filteredBooks)        
+      }
+    },
+
+    getEverything() {
+      this.filteredBooks = this.books;  
+    },
   }
 };
 
