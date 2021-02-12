@@ -3,7 +3,7 @@
     <h2>Young Adult: Choose a subgenre!</h2>
     <div class="genre-buttons">
     <button @click="getEverything" id="get-all-ya"> Get me everything! </button>
-    <button @click="getBook('fantasy')" class="subgenre" id="Fantasy">Fantasy</button>
+    <button @click="getFantasy" class="subgenre" id="Fantasy">Fantasy</button>
     <button class="subgenre" id="rom-com">Rom-com</button>
     <button class="subgenre" id="horror">Horror</button>
     </div>
@@ -28,12 +28,10 @@ export default {
   },
   methods: {
     // take a subgenre argument
-    getBook(subgenre) {
+    getFantasy() {
       // filter the results based on what the subgenre is
-      if (subgenre === 'fantasy') {
-        this.filteredBooks = this.books.filter(books => books.subgenre[0] === subgenre);
-        console.log(this.filteredBooks)        
-      }
+        this.filteredBooks = this.books.filter(books => books.subgenre[0] === 'Fantasy');
+        console.log(this.filteredBooks);        
     },
 
     getEverything() {
