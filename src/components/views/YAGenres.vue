@@ -4,8 +4,8 @@
     <div class="genre-buttons">
     <button @click="getEverything" id="get-all-ya"> Get me everything! </button>
     <button @click="getFantasy" class="subgenre" id="Fantasy">Fantasy</button>
-    <button class="subgenre" id="rom-com">Rom-com</button>
-    <button class="subgenre" id="horror">Horror</button>
+    <button @click="getRomCom" class="subgenre" id="rom-com">Rom-com</button>
+    <button @click="getHorror" class="subgenre" id="horror">Horror</button>
     </div>
     <book-card-view :books="filteredBooks"/>
   </div>
@@ -31,6 +31,18 @@ export default {
     getFantasy() {
       // filter the results based on what the subgenre is
         this.filteredBooks = this.books.filter(books => books.subgenre[0] === 'Fantasy');
+        console.log(this.filteredBooks);        
+    },
+
+    getRomCom() {
+      // filter the results based on what the subgenre is
+        this.filteredBooks = this.books.filter(books => books.subgenre[0] === 'Rom-com');
+        console.log(this.filteredBooks);        
+    },
+
+    getHorror() {
+      // filter the results based on what the subgenre is
+        this.filteredBooks = this.books.filter(books => books.subgenre[0] === 'Horror');
         console.log(this.filteredBooks);        
     },
 
