@@ -8,6 +8,10 @@
     <button @click="getHorror" class="subgenre" id="horror">Horror</button>
     </div>
     <book-card-view :books="filteredBooks"/>
+
+<!-- Router-view is mostly for error page -->
+    <router-view></router-view>
+
   </div>
 </template>
 
@@ -42,8 +46,14 @@ export default {
 
     getHorror() {
       // filter the results based on what the subgenre is
-        this.filteredBooks = this.books.filter(books => books.subgenre[0] === 'Horror');
-        console.log(this.filteredBooks);        
+      let horrorBooks = this.books.filter(books => books.subgenre[0] === 'Horror')
+      // if there is nothing in the array, push the error page to router view
+      // which for some reason isnt working so figure that out
+      if (horrorBooks.length < 0) {
+        this.$router.push("/Error");
+      } else {
+        this.filteredBooks = horrorBooks;
+      }    
     },
 
     getEverything() {
