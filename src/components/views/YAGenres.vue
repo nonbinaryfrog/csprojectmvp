@@ -9,7 +9,7 @@
     </div>
     <book-card-view :books="filteredBooks"/>
 
-<!-- Router-view is mostly for error page -->
+<!-- Router-view is for error page -->
     <router-view></router-view>
 
   </div>
@@ -49,7 +49,7 @@ export default {
       let horrorBooks = this.books.filter(books => books.subgenre[0] === 'Horror')
       // if there is nothing in the array, push the error page to router view
       // which for some reason isnt working so figure that out
-      if (horrorBooks.length < 0) {
+      if (horrorBooks.length === 0) {
         this.$router.push("/Error");
       } else {
         this.filteredBooks = horrorBooks;
