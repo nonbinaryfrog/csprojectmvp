@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/books", function(req, res, next) {
-  res.send("Access the API at path /api");
+  res.send("books");
 });
 
 routes(app);
