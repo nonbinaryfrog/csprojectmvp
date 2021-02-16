@@ -1,5 +1,4 @@
-// Because MongoDB will not be added yet, this file will
-// likely be unused by the app
+// require mongoose to create a schema for the book form
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
@@ -8,11 +7,11 @@ const bookSchema = new Schema(
   {
     authorName: {
       type: String,
-      required: 'authorName cannot be blank'
+      required: 'Author name cannot be blank'
     },
     bookTitle: {
       type: String,
-      required: 'bookTitle  cannot be blank'
+      required: 'Book title cannot be blank'
     }
   },
   // the collection may just be submissions if this is for
@@ -20,4 +19,4 @@ const bookSchema = new Schema(
   { collection: 'submissions' }
 );
 
-module.exports = mongoose.model('submissions', bookSchema);
+module.exports = mongoose.model('books', bookSchema);

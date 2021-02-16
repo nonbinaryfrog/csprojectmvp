@@ -7,7 +7,8 @@ module.exports = app => {
     .get(bookBuilder.list_all_books)
     .post(bookBuilder.create_a_book);
 
+    // get books based on the genre
   app
-    .route('/tasks/:bookId')
-    .get(bookBuilder.read_a_task)
+    .route('/books/:genre')
+    .get(bookBuilder.read_a_book)
 };
