@@ -3,7 +3,7 @@
     <div id="genre-btns">
       <button class="btns" @click="getPB">Picture Books</button>
       <button class="btns" @click="getMG">Middle Grade</button>
-      <button class="btns" @click="getYA">Yound Adult</button>
+      <button class="btns" @click="getYA">Young Adult</button>
       <button class="btns" @click="getAdult">Adult</button>
     </div>
 
@@ -47,7 +47,7 @@ export default {
 }
 
 .btns {
-  border: solid 1px black;
+  border: 1px solid whitesmoke;
   border-radius: 15px;
   margin: auto;
   width: 75%;

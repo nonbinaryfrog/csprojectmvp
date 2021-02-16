@@ -4,7 +4,7 @@ export default [
     author: ["Sebastian Robertson"],
     illustrator: ["Adam Gustavson"],
     genre: "PB",
-    subgenre: [],
+    subgenre: ["Biographical"],
     description:
       "Canadian guitarist and songwriter Robbie Robertson is known mainly for his central role in the musical group the Band. But how did he become one of Rolling Stone's top 100 guitarists of all time? Written by his son, Sebastian, this is the story of a rock-and-roll legend's journey through music, beginning when he was taught to play guitar at nine years old on a Native American reservation. Rock and Roll Highway is the story of a young person's passion, drive, and determination to follow his dream.",
   },
@@ -13,7 +13,7 @@ export default [
     author: ["Andrea Davis Pinkney"],
     illustrator: ["Steve Johnson", "Lou Fancher"],
     genre: "PB",
-    subgenre: [],
+    subgenre: ["Biographical"],
     description: "A celebration of the extraordinary life of Ezra Jack Keats, creator of The Snowy Day.",
   },
   {
@@ -21,7 +21,7 @@ export default [
     author: ["Linda Sue Park"],
     illustrator: ["Ho Baek Lee"],
     genre: "PB",
-    subgenre: [],
+    subgenre: ["Domestic Fiction"],
     description: "Bee-bim bop (the name translates as “mix-mix rice”) is a traditional Korean dish of rice topped, and then mixed, with meat and vegetables. In bouncy rhyming text, a hungry child tells about helping her mother make bee-bim bop: shopping, preparing ingredients, setting the table, and finally sitting down with her family to enjoy a favorite meal. The energy and enthusiasm of the young narrator are conveyed in the whimsical illustrations, which bring details from the artist’s childhood in Korea to his depiction of a modern Korean American family. ",
   },
   {
