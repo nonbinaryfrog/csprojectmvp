@@ -5,7 +5,7 @@ const model = require('./api/models/model');
 module.exports = app => {
   app
     .route('/books')
-    .get(bookBuilder.list_all_books)
+    .get(bookBuilder.list_all_books) 
     .post(bookBuilder.create_a_book);
 
     // get books based on the genre
