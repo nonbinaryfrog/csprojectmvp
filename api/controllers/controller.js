@@ -2,10 +2,9 @@
 const mongoose = require('mongoose');
 const book = mongoose.model('books');
 
-// may need to change the mongoose.model to 'submissions' for the collection
 
 exports.list_all_books = (req, res) => {
-  task.find({}, (err, books) => {
+  book.find({}, (err, books) => {
     if (err) {
       res.send(err);
     } else {
@@ -27,7 +26,7 @@ exports.create_a_book = (req, res) => {
 };
 
 exports.read_a_book = (req, res) => {
-  task.findById(req.params.genre, (err, book) => {
+  book.findById(req.params.genre, (err, book) => {
     if (err) {
       res.send(err);
     } else {

@@ -1,5 +1,6 @@
 // Have to change this code because MongoDB will not be added yet
 const bookBuilder = require('../controllers/controller');
+const model = require('./api/models/model');
 
 module.exports = app => {
   app

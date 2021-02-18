@@ -9,7 +9,6 @@ if (dotenv.error) {
 }
 
 // will not use api folder yet
-global.Task = require('./api/models/model');
 const routes = require('./api/routes/routes');
 
 // To use for connecting to the MongoDB database
@@ -30,11 +29,9 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/books", function(req, res, next) {
-  res.send("books");
-});
 
-routes(app);
+
+app.use( '/',routes)
 app.listen(port, function () {
   console.log(`Server started on port ${port}`);
 });
