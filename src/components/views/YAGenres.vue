@@ -1,21 +1,20 @@
 <template>
   <div class="book-options">
     <h2>Young Adult: Choose a subgenre!</h2>
+    <div class="genre-btns">
 
-    <div id="genrebtns">
-    <div id="everythingBtn">
-    <button @click="getEverything" id="get-all-ya"> Get me everything! </button>
-    </div>
+    <button @click="getEverything" id="everything-btn" class="btn"> Get me everything! </button>
 
     <div class="subgenre-buttons">
-    <button @click="getFantasy" class="subgenre" id="Fantasy">Fantasy</button>
-    <button @click="getRomCom" class="subgenre" id="rom-com">Rom-com</button>
-    <button @click="getHorror" class="subgenre" id="horror">Horror</button>
+    <button @click="getFantasy" class="btn">Fantasy</button>
+    <button @click="getRomCom" class="btn">Rom-com</button>
+    <button @click="getHorror" class="btn">Horror</button>
     </div>
+
     </div>
     <book-card-view :books="filteredBooks"/>
 
-<!-- Router-view is for error page -->
+   <!-- Router-view is for error page -->
     <router-view></router-view>
 
   </div>
@@ -77,7 +76,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
 
 h2 {
@@ -87,33 +86,27 @@ h2 {
 .book-options {
   margin: 0 auto;
   width: 50%;
+  display: block;
 }
 
-button {
-  margin-left: 25%;
+.btn {
+  display: grid;
+  margin: 20px;
   font-family: 'Coming Soon', cursive;
 }
 
-.subgenre {
-  display: grid;
-  margin: 20px;
-}
-
-#everythingBtn {
-  width: 50%;
-  margin-left: 20%;
+#everything-btn {
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .subgenre-buttons {
-  margin: auto;
-  text-align: center;
   display: grid;
+  margin-left: auto;
+  margin-right: auto;
   grid-template-columns: repeat(3, 1fr);
-}
-
-#genrebtns {
-  display: inline-block;
-  margin: auto;
 }
 
 </style>

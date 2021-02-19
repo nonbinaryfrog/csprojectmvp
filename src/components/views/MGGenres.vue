@@ -1,20 +1,22 @@
 <template>
   <div class="book-options">
     <h2>Middle Grade: Choose a subgenre!</h2>
-    <div id="genrebtns">
-    <div id="everythingBtn">
-    <button @click="getEverything">Get me everything!</button>
-    </div>
+    <div class="genre-btns">
+
+    <button @click="getEverything" id="everything-btn" class="btn">Get me everything!</button>
 
     <div class="subgenre-buttons">
-    <button @click="getFantasy" class="subgenre" id="Fantasy">Fantasy</button>
-    <button @click="getRomCom" class="subgenre" id="rom-com">Rom-com</button>
-    <button @click="getHorror" class="subgenre" id="horror">Horror</button>
+    <button @click="getGhost" class="btn">Ghost Story</button>
+    <button @click="getDomestic" class="btn">Domestic Fiction</button>
+    <button @click="getScifi" class="btn">Sci-Fi</button>
     </div>
+
     </div>
     <book-card-view :books="filteredBooks" />
+
     <!-- error page -->
     <router-view></router-view>
+
   </div>
 </template>
 
@@ -35,34 +37,34 @@ export default {
   },
   methods: {
     // take a subgenre argument
-    getFantasy() {
+    getGhost() {
       // filter the results based on what the subgenre is
-      let fantasyBooks = this.books.filter(books => books.subgenre[0] === 'Fantasy');
-        if (fantasyBooks.length === 0) {
+      let ghostBooks = this.books.filter(books => books.subgenre[0] === 'Ghost Story');
+        if (ghostBooks.length === 0) {
         this.$router.push("/Error");
       } else {
-        this.filteredBooks = fantasyBooks;
+        this.filteredBooks = ghostBooks;
       }       
     },
 
-    getRomCom() {
+    getDomestic() {
       // filter the results based on what the subgenre is
-        let romCom = this.books.filter(books => books.subgenre[0] === 'Rom-com');
-        if (romCom.length === 0) {
+        let domesticFic = this.books.filter(books => books.subgenre[0] === 'Domestic Fiction');
+        if (domesticFic.length === 0) {
         this.$router.push("/Error");
       } else {
-        this.filteredBooks = romCom;
+        this.filteredBooks = domesticFic;
       }        
     },
 
-    getHorror() {
+    getScifi() {
       // filter the results based on what the subgenre is
-      let horrorBooks = this.books.filter(books => books.subgenre[0] === 'Horror')
+      let scifiBooks = this.books.filter(books => books.subgenre[0] === 'Science Fiction')
       // if there is nothing in the array, push the error page to router view
-      if (horrorBooks.length === 0) {
+      if (scifiBooks.length === 0) {
         this.$router.push("/Error");
       } else {
-        this.filteredBooks = horrorBooks;
+        this.filteredBooks = scifiBooks;
       }    
     },
 
@@ -73,7 +75,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
 
 h2 {
@@ -83,32 +85,27 @@ h2 {
 .book-options {
   margin: 0 auto;
   width: 50%;
+  display: block;
 }
 
-button {
-  margin-left: 25%;
+.btn {
+  display: grid;
+  margin: 20px;
   font-family: 'Coming Soon', cursive;
 }
 
-.subgenre {
-  display: grid;
-  margin: 20px;
-}
-
-#everythingBtn {
-  width: 50%;
-  margin-left: 20%;
+#everything-btn {
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .subgenre-buttons {
-  margin: auto;
-  text-align: center;
   display: grid;
+  margin-left: auto;
+  margin-right: auto;
   grid-template-columns: repeat(3, 1fr);
 }
 
-#genrebtns {
-  display: inline-block;
-  margin: auto;
-}
 </style>

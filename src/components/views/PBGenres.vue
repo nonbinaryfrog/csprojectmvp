@@ -1,15 +1,15 @@
 <template>
   <div class="book-options">
     <h2>Picture Books: Choose a subgenre!</h2>
-    <div id="genrebtns">
-    <div id="everythingBtn">
-    <button @click="getEverything"> Get me everything! </button>
-    </div>
+    <div class="genre-btns">
+
+    <button @click="getEverything" id="everything-btn" class="btn"> Get me everything! </button>
+
 
     <div class="subgenre-buttons">
-    <button @click="getFantasy" class="subgenre" id="Fantasy">Fantasy</button>
-    <button @click="getRomCom" class="subgenre" id="rom-com">Rom-com</button>
-    <button @click="getHorror" class="subgenre" id="horror">Horror</button>
+    <button @click="getBio" class="btn">Biographical</button>
+    <button @click="getDomestic" class="btn">Domestic Fiction</button>
+    <button @click="getAdventure" class="btn">Adventure</button>
     </div>
     </div>
 
@@ -36,34 +36,34 @@ export default {
   },
   methods: {
     // take a subgenre argument
-    getFantasy() {
+    getBio() {
       // filter the results based on what the subgenre is
-      let fantasyBooks = this.books.filter(books => books.subgenre[0] === 'Fantasy');
-        if (fantasyBooks.length === 0) {
+      let bioBooks = this.books.filter(books => books.subgenre[0] === 'Biographical');
+        if (bioBooks.length === 0) {
         this.$router.push("/Error");
       } else {
-        this.filteredBooks = fantasyBooks;
+        this.filteredBooks = bioBooks;
       }       
     },
 
-    getRomCom() {
+    getDomestic() {
       // filter the results based on what the subgenre is
-        let romCom = this.books.filter(books => books.subgenre[0] === 'Rom-com');
-        if (romCom.length === 0) {
+        let domesticFic = this.books.filter(books => books.subgenre[0] === 'Domestic Fiction');
+        if (domesticFic.length === 0) {
         this.$router.push("/Error");
       } else {
-        this.filteredBooks = romCom;
+        this.filteredBooks = domesticFic;
       }        
     },
 
-    getHorror() {
+    getAdventure() {
       // filter the results based on what the subgenre is
-      let horrorBooks = this.books.filter(books => books.subgenre[0] === 'Horror')
+      let adventureBooks = this.books.filter(books => books.subgenre[0] === 'Adventure')
       // if there is nothing in the array, push the error page to router view
-      if (horrorBooks.length === 0) {
+      if (adventureBooks.length === 0) {
         this.$router.push("/Error");
       } else {
-        this.filteredBooks = horrorBooks;
+        this.filteredBooks = adventureBooks;
       }    
     },
 
@@ -74,7 +74,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
 
 h2 {
@@ -84,32 +84,27 @@ h2 {
 .book-options {
   margin: 0 auto;
   width: 50%;
+  display: block;
 }
 
-button {
-  margin-left: 25%;
+.btn {
+  display: grid;
+  margin: 20px;
   font-family: 'Coming Soon', cursive;
 }
 
-.subgenre {
-  display: grid;
-  margin: 20px;
-}
-
-#everythingBtn {
-  width: 50%;
-  margin-left: 20%;
-}
-
 .subgenre-buttons {
-  margin: auto;
-  text-align: center;
   display: grid;
+  margin-left: auto;
+  margin-right: auto;
   grid-template-columns: repeat(3, 1fr);
 }
 
-#genrebtns {
-  display: inline-block;
-  margin: auto;
+#everything-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
 }
+
 </style>

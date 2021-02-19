@@ -34,6 +34,8 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Kranky&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
 
 #genre-btns {
   margin: auto;
@@ -56,10 +58,15 @@ export default {
   margin-bottom: 10px;
   margin-top: 10px;
   background-color: #fbdcc4;
+  font-family: 'Coming Soon', cursive;
 }
 
 button:hover {
   color: white;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
 }
 
 </style>
