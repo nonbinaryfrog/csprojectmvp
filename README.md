@@ -6,24 +6,15 @@ marginalized authors of color.
 ```
 yarn install
 ```
+## Database Schema
+The following is a screenshot of the simple database utilized in
+this MVP.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+![Database](src/assets/database_schema.png)
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## API Requests
+Below is the API documentation for this project.
+![API](src/assets/API_requests.png)
 
 This is a student project that was created at
 [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
