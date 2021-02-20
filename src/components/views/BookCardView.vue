@@ -4,7 +4,18 @@
     <p>Author: {{ book.author[0] }} </p>
     <p>Genre: {{ book.genre }} </p>
     <p>Subgenres: {{ book.subgenre[0] }}</p>
-    <p>Description: {{ book.description }} </p>
+
+    <p v-if="!readMoreActivated">Description: {{ book.description.slice(0,200) }} ... 
+      <button @click="activateReadMore">Read more...</button>
+    </p>
+
+    <p v-else-if="readMoreActivated">Description: {{ book.description }} 
+      <button @click="deactivateReadMore">Read less...</button>
+    </p>
+
+
+    
+    
 
   </div>
 </template>
@@ -13,6 +24,19 @@
 export default {
   name: "BookCardView",
   props: ["books"],
+  data() {
+    return {
+      readMoreActivated: false
+    }
+  },
+  methods: {
+    activateReadMore() {
+      this.readMoreActivated = true;
+    },    
+    deactivateReadMore() {
+      this.readMoreActivated = false;
+    }
+  }
 };
 </script>
 
