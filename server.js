@@ -3,17 +3,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
+const routes = require('./api/routes/routes');
 
 if (dotenv.error) {
   throw dotenv.error
 }
 
-// will not use api folder yet
-const routes = require('./api/routes/routes');
-
 // To use for connecting to the MongoDB database
-mongoose.Promise = global.Promise;
-mongoose.set('useFindAndModify', false);
 mongoose.connect( process.env.MONGO_URI,
   { useNewUrlParser: true,
   useUnifiedTopology: true })
@@ -22,14 +18,13 @@ mongoose.connect( process.env.MONGO_URI,
   })
   .catch(error => {console.error(error)})
 
+// Middleware
 const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-
 
 app.use( '/',routes)
 app.listen(port, function () {
@@ -39,3 +34,5 @@ app.listen(port, function () {
 app.use((req, res) => {
   res.status(404).send({ url: `${req.originalUrl} not found` });
 });
+
+module.exports = app;

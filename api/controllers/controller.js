@@ -2,7 +2,6 @@
 const mongoose = require('mongoose');
 const book = mongoose.model('books');
 
-
 exports.list_all_books = (req, res) => {
   book.find({}, (err, books) => {
     if (err) {

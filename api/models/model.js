@@ -29,8 +29,7 @@ const bookSchema = new Schema(
       required: 'Description cannot be blank'
     }
   },
-  // the collection may just be submissions if this is for
-  // the submission form
+
   { collection: 'books' }
 );
 
