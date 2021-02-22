@@ -7,26 +7,26 @@ const bookSchema = new Schema(
   {
     author: {
       type: Array,
-      required: 'Author name cannot be blank'
+      required: true
     },
     title: {
       type: String,
-      required: 'Book title cannot be blank'
+      required: true
     },
     illustrator: {
       type: Array,
     },
     genre: {
       type: String,
-      required: 'Genre cannot be blank'
+      required: true
     },
     subgenre: {
       type: Array,
-      required: 'Subgenre cannot be blank'
+      required: true
     },
     description: {
       type: String,
-      required: 'Description cannot be blank'
+      required: true
     }
   },
 

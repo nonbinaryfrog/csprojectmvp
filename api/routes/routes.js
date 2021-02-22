@@ -1,15 +1,16 @@
-// Have to change this code because MongoDB will not be added yet
+// routes for books
+
 const bookBuilder = require('../controllers/controller');
+let router = require('express').Router();
 
 
-module.exports = app => {
-  app
-    .route('/books')
-    .get(bookBuilder.list_all_books) 
-    .post(bookBuilder.create_a_book);
+  // get all books
+  router.get('/books', bookBuilder.list_all_books);
 
-    // get books based on the genre
-  app
-    .route('/books/:genre')
-    .get(bookBuilder.read_a_book)
-};
+  // get books based on the genre
+  router.get('/:genre', bookBuilder.get_some_books)
+
+  // make a new book entry
+  router.post(bookBuilder.create_a_book);
+
+module.exports = router;

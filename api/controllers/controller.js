@@ -2,15 +2,34 @@
 const mongoose = require('mongoose');
 const book = mongoose.model('books');
 
-exports.list_all_books = (req, res) => {
-  book.find({}, (err, books) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(books);
+// getting all books
+
+let Book = require('../models/model');
+
+exports.list_all_books = async function (req, res, next) {
+    try {
+        let books = await Book.find({}).exec();
+        res.json(books).send(books);
+    } catch (err) {
+        res.status(500).send({ error: err.message });
     }
-  });
-};
+}
+
+// getting book by genre
+
+exports.get_some_books = async function (req, res, next) {
+  let { genre } = req.params;
+  try {
+    let books = await (await Book.findById(genre)).exec();
+    if (books) {
+      res.send(books)
+    } else {
+      res.status(404).send({error: 'Not Found'});
+    }
+  } catch (err) {
+    res.status(500).send({error: err.message});
+  }
+}
 
 // when a person fills out the submission form to submit this will be called upon
 exports.create_a_book = (req, res) => {
@@ -20,16 +39,7 @@ exports.create_a_book = (req, res) => {
       res.send(err);
     } else {
       res.json(book);
-    }
-  });
-};
-
-exports.read_a_book = (req, res) => {
-  book.findById(req.params.genre, (err, book) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(book);
+      res.send(book);
     }
   });
 };
