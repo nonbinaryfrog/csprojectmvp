@@ -5,8 +5,10 @@ marginalized authors of color.
 ## Project setup
 ```
 yarn install
-
 yarn add vue-router --save-dev
+yarn start (starts database server on localhost:3000)
+yarn serve (starts frontend on localhost:8080)
+
 ```
 
 Due to the fact this project uses Vue.js 3.0, you will need to
