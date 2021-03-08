@@ -12,9 +12,11 @@
     <button @click="getHorror" class="btn" id="horror">Horror</button>
     </div>
     </div>
-    <book-card-view :books="filteredBooks" />
+    
+    <BookCardView :books="filteredBooks" />
     <!-- error page -->
-    <router-view></router-view>
+    <!-- this router view seems to be unneeded -->
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
@@ -68,6 +70,7 @@ export default {
     },
 
     getEverything() {
+      console.log(this.books[0].title)
       this.filteredBooks = this.books;  
     },
   }
