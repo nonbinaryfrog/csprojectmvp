@@ -35,11 +35,14 @@ export default {
 
     computed: {
         filterList() {
-            if(this.search !== "") {
+            if (this.search !== "") {
                 return this.filteredBooks.filter((book) => {
-                    return book.title.toLowerCase().match(this.search.toLowerCase());
+                    return (book.author[0].toLowerCase().match(this.search.toLowerCase()) 
+                    || book.title.toLowerCase().match(this.search.toLowerCase())
+                    )
                 });
             }
+
             return this.filteredBooks
         }
     },
