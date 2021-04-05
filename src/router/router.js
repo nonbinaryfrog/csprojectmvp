@@ -15,6 +15,7 @@ let pbBooks = BookData.filter((book) => book.genre === "PB");
 let mgBooks = BookData.filter((book) => book.genre === "MG");
 let yaBooks = BookData.filter((book) => book.genre === "YA");
 let adultBooks = BookData.filter((book) => book.genre === "A");
+let allBooks = BookData;
 
 const routes = [
   // nested routes for genres in home
@@ -48,7 +49,7 @@ const routes = [
       },
     ],
   },
-  { path: "/Search", component: Search },
+  { path: "/Search", component: Search, props: { books: allBooks } },
   { path: "/About", component: About },
   { path: "/Submit", component: SubmitForm },
 ];
