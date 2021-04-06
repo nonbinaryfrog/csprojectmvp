@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv').config();
 require('./api/models/model');
 const routes = require('./api/routes/routes');
@@ -24,8 +24,8 @@ mongoose.connect( process.env.MONGO_URI,
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(cookieParser.urlencoded({ extended: true }));
+app.use(cookieParser.json());
 
 // Routes
 app.get('/', function(req, res, next) {
