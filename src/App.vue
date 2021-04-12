@@ -3,7 +3,7 @@
     <h1 @click="goHome">Cracked Spines Project</h1>
     <div id="navBar">
       <!-- These router-links will route to the components -->
-      <router-link class="link" to="/">Home</router-link>
+      <router-link class="link" to="/books">Home</router-link>
       <router-link class="link" to="/Search">Search</router-link>
       <router-link class="link" to="/About">About</router-link>
       <router-link class="link" to="/Submit">Submit Form</router-link>
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     goHome() {
-      this.$router.push("/");
+      this.$router.push("/books");
     }
   }
 };

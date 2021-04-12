@@ -17,16 +17,16 @@ export default {
   name: "Home",
   methods: {
     getPB() {
-      this.$router.push("/PB");
+      this.$router.push("/books/PB");
     },
     getMG() {
-      this.$router.push("/MG");
+      this.$router.push("/books/MG");
     },
     getYA() {
-      this.$router.push("/YA");
+      this.$router.push("/books/YA");
     },
     getAdult() {
-      this.$router.push("/Adult");
+      this.$router.push("/books/Adult");
     },
   },
 };

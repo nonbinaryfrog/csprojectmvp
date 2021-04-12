@@ -21,6 +21,7 @@
 
 <script>
 import BookCardView from './BookCardView';
+// import axios from 'axios'
 
 export default {
   name: "PBGenres",
@@ -66,9 +67,18 @@ export default {
         this.filteredBooks = adventureBooks;
       }    
     },
-
-    getEverything() {
-      this.filteredBooks = this.books;  
+    
+    // this method should return all picture books
+    // but it only returns a JSON error
+    async getEverything() {
+      // this.filteredBooks = this.books;  
+      // let res = await axios.get('/books/PB');
+      // return res.data;
+      const response = await fetch('/books/PB', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+      })
+      return await response.json();
     },
   }
 };

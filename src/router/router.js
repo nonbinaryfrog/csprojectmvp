@@ -6,11 +6,14 @@ import PBGenres from "../components/views/PBGenres.vue";
 import MGGenres from "../components/views/MGGenres.vue";
 import YAGenres from "../components/views/YAGenres.vue";
 import AdultGenres from "../components/views/AdultGenres.vue";
+
+// will need to remove BookData to test MongoDB ocnnection
 import BookData from "../BookData";
 import ErrorPage from "../components/views/ErrorPage.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
 // filter data based on genres first
+// Also need to comment out this code  as well as props below
 let pbBooks = BookData.filter((book) => book.genre === "PB");
 let mgBooks = BookData.filter((book) => book.genre === "MG");
 let yaBooks = BookData.filter((book) => book.genre === "YA");
@@ -20,26 +23,26 @@ let allBooks = BookData;
 const routes = [
   // nested routes for genres in home
   {
-    path: "/",
+    path: "/books",
     component: Home,
     children: [
       {
-        path: "/PB",
+        path: "/books/PB",
         component: PBGenres,
         props: { books: pbBooks },
       },
       {
-        path: "/MG",
+        path: "/books/MG",
         component: MGGenres,
         props: { books: mgBooks },
       },
       {
-        path: "/YA",
+        path: "/books/YA",
         component: YAGenres,
         props: { books: yaBooks },
       },
       {
-        path: "/Adult",
+        path: "/books/Adult",
         component: AdultGenres,
         props: { books: adultBooks },
       },
