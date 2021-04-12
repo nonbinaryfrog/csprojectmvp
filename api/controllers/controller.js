@@ -1,17 +1,17 @@
 // require mongoose to create a model for the books
+const { db } = require('mongodb');
 const mongoose = require('mongoose');
 const book = mongoose.model('books');
 
-// getting all books
-
 let Book = require('../models/model');
 
+// getting all books
 exports.list_all_books = async function (req, res, next) {
     try {
-        let books = await Book.find({}).exec();
+        let books = await Book.find({});
         res.json(books).send(books);
     } catch (err) {
-        res.status(500).send({ error: err.message });
+        res.status(500).send({ error: 'Something went wrong here.' });
     }
 }
 
@@ -20,7 +20,7 @@ exports.list_all_books = async function (req, res, next) {
 exports.get_some_books = async function (req, res, next) {
   let { genre } = req.params;
   try {
-    let books = await (await Book.findById(genre)).exec();
+    let books = await Book.findById(genre).exec();
     if (books) {
       res.send(books)
     } else {

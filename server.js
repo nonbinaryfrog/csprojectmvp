@@ -13,7 +13,7 @@ if (dotenv.error) {
 const port = process.env.PORT || 3000;
 const app = express();
 
-// To use for connecting to the MongoDB database
+// For connecting to the MongoDB database
 mongoose.connect( process.env.MONGO_URI,
   { useNewUrlParser: true,
   useUnifiedTopology: true })
@@ -24,14 +24,14 @@ mongoose.connect( process.env.MONGO_URI,
 
 // Middleware
 app.use(cors());
-app.use(cookieParser.urlencoded({ extended: true }));
-app.use(cookieParser.json());
+app.use(cookieParser());
+// app.use(cookieParser.json());
 
 // Routes
 app.get('/', function(req, res, next) {
   res.send({ message: 'You got this far! Try /books'})
 })
-app.use('/books', routes);
+app.use('/', routes);
 
 app.listen(port, function () {
   console.log(`Server started on port ${port}`);
