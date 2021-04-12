@@ -9,20 +9,19 @@ let Book = require('../models/model');
 exports.list_all_books = async function (req, res, next) {
     try {
         let books = await Book.find({});
-        res.json(books).send(books);
+        res.json(books);
     } catch (err) {
         res.status(500).send({ error: 'Something went wrong here.' });
     }
 }
 
 // getting book by genre
-
 exports.get_some_books = async function (req, res, next) {
   let { genre } = req.params;
   try {
-    let books = await Book.findById(genre).exec();
+    let books = await Book.find({"genre": genre});
     if (books) {
-      res.send(books)
+      res.json(books)
     } else {
       res.status(404).send({error: 'Not Found'});
     }

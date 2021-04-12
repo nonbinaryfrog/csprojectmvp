@@ -8,7 +8,7 @@ let router = require('express').Router();
   router.get('/books', bookBuilder.list_all_books);
 
   // get books based on the genre
-  router.get('/:genre', bookBuilder.get_some_books)
+  router.get('/books/:genre', bookBuilder.get_some_books)
 
   // make a new book entry
   router.post(bookBuilder.create_a_book);
