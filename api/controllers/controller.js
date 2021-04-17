@@ -1,12 +1,11 @@
 // require mongoose to create a model for the books
-const { db } = require('mongodb');
 const mongoose = require('mongoose');
 const book = mongoose.model('books');
 
 let Book = require('../models/model');
 
 // getting all books
-exports.list_all_books = async function (req, res, next) {
+exports.list_all_books = async function (req, res) {
     try {
         let books = await Book.find({});
         res.json(books);
@@ -16,7 +15,7 @@ exports.list_all_books = async function (req, res, next) {
 }
 
 // getting book by genre
-exports.get_some_books = async function (req, res, next) {
+exports.get_some_books = async function (req, res) {
   let { genre } = req.params;
   try {
     let books = await Book.find({"genre": genre});

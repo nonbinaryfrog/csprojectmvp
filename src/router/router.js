@@ -6,6 +6,7 @@ import PBGenres from "../components/views/PBGenres.vue";
 import MGGenres from "../components/views/MGGenres.vue";
 import YAGenres from "../components/views/YAGenres.vue";
 import AdultGenres from "../components/views/AdultGenres.vue";
+// import controller from '../../api/controllers/controller';
 
 // will need to remove BookData to test MongoDB ocnnection
 import BookData from "../BookData";
@@ -19,6 +20,9 @@ let mgBooks = BookData.filter((book) => book.genre === "MG");
 let yaBooks = BookData.filter((book) => book.genre === "YA");
 let adultBooks = BookData.filter((book) => book.genre === "A");
 let allBooks = BookData;
+
+// will do a get request on picture books
+// let pbBooks = async controller.get_some_books();
 
 const routes = [
   // nested routes for genres in home

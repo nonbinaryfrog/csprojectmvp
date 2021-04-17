@@ -21,7 +21,7 @@
 
 <script>
 import BookCardView from './BookCardView';
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: "PBGenres",
@@ -69,17 +69,22 @@ export default {
     },
     
     // this method should return all picture books
-    // but it only returns a JSON error
+    // but it only returns a 404 error
     async getEverything() {
-      // this.filteredBooks = this.books;  
-      // let res = await axios.get('/books/PB');
-      // return res.data;
-      const response = await fetch('/books/PB', {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'}
-      })
-      return await response.json();
-    },
+      try {
+        let pbBooks = await axios.get('/books/PB', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'}
+        })
+        if (pbBooks) {
+          console.log(pbBooks)
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch {
+        console.log('Something went wrong here.')
+      }
+    }
   }
 };
 </script>
