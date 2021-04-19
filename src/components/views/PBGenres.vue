@@ -72,7 +72,7 @@ export default {
     // but it only returns a 404 error
     async getEverything() {
       try {
-        let pbBooks = await axios.get('/books/PB', {
+        let pbBooks = await axios.get(`/books/PB`, {
           method: 'GET',
           headers: {'Content-Type': 'application/json'}
         })
@@ -81,8 +81,8 @@ export default {
         } else {
           this.$router.push('/Error');
         }
-      } catch {
-        console.log('Something went wrong here.')
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
       }
     }
   }
