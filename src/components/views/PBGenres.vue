@@ -72,9 +72,12 @@ export default {
     // but it only returns a 404 error
     async getEverything() {
       try {
-        let pbBooks = await axios.get(`/books/PB`, {
+        let pbBooks = await axios.get(`/books/`, {
           method: 'GET',
-          headers: {'Content-Type': 'application/json'}
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'PB'
+          }
         })
         if (pbBooks) {
           console.log(pbBooks)
