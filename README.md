@@ -5,7 +5,10 @@ marginalized authors of color.
 ## Project setup
 ```
 yarn install
-yarn add vue-router --save-dev
+yarn add vue-router vue --save-dev
+yarn add axios cookie-parser cors dotenv --save-dev
+yarn add express mongodb mongoose --save-dev
+yarn add nodemon mongodb-client-encryption --save-dev
 yarn start (starts database server on localhost:3000)
 yarn serve (starts frontend on localhost:8080)
 
