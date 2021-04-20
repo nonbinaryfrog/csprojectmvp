@@ -72,7 +72,7 @@ export default {
     // but it only returns a 404 error
     async getEverything() {
       try {
-        let pbBooks = await axios.get(`/books/`, {
+        let pbBooks = await axios.get('http://localhost:3000/books/PB', {
           method: 'GET',
           headers: {'Content-Type': 'application/json'},
           params: {
@@ -80,7 +80,7 @@ export default {
           }
         })
         if (pbBooks) {
-          console.log(pbBooks)
+          console.log(pbBooks.data)
         } else {
           this.$router.push('/Error');
         }
