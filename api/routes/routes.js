@@ -11,7 +11,7 @@ let router = require('express').Router();
   router.get('/books/:genre', bookBuilder.get_some_books)
 
   // get books based on multiple queries
-  // router.get(`/books?genre=`, bookBuilder.get_some_books)
+  // router.get(`/books/:genre&subgenre`, bookBuilder.get_these_books)
 
   // make a new book entry
   router.post(bookBuilder.create_a_book);

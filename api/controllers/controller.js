@@ -29,6 +29,22 @@ exports.get_some_books = async function (req, res) {
   }
 }
 
+// getting book by genre & subgenre
+exports.get_these_books = async function (req, res) {
+  let { genre, subgenre } = req.params;
+  try {
+    let books = await Book.find({"genre": genre});
+    if (books) {
+      res.json(books)
+      // iterate over array in object
+    } else {
+      res.status(404).send({error: 'Not Found'});
+    }
+  } catch (err) {
+    res.status(500).send({error: err.message});
+  }
+}
+
 // when a person fills out the submission form to submit this will be called upon
 exports.create_a_book = (req, res) => {
   const newBook = new book(req.body);
