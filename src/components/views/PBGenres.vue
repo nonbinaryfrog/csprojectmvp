@@ -67,9 +67,28 @@ export default {
         this.filteredBooks = adventureBooks;
       }    
     },
-    
-    // this method should return all picture books
-    // but it only returns a 404 error
+
+    // async getAdventure() {
+    //   try {
+    //     let advenBooks = await axios.get('http://localhost:3000/books/PB', {
+    //       method: 'GET',
+    //       headers: {'Content-Type': 'application/json'},
+    //       params: {
+    //         genre: 'PB',
+    //         subgenre: 'Adventure'
+    //       }
+    //     })
+    //     if (advenBooks) {
+    //       console.log(advenBooks.data)
+    //     } else {
+    //       this.$router.push('/Error');
+    //     }
+    //   } catch (err) {
+    //     console.log(`Network error: ${err.message}`)
+    //   }
+    // },
+
+
     async getEverything() {
       try {
         let pbBooks = await axios.get('http://localhost:3000/books/PB', {
@@ -80,7 +99,7 @@ export default {
           }
         })
         if (pbBooks) {
-          console.log(pbBooks.data)
+          this.filteredBooks = pbBooks.data;
         } else {
           this.$router.push('/Error');
         }
