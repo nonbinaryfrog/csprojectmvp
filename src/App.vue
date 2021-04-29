@@ -19,6 +19,7 @@ import BookData from "./BookData"
 
 export default {
   name: "app",
+  props: ["books"],
   data() {
     return {
       allBooks: BookData,

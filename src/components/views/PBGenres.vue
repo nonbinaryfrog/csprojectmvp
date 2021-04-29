@@ -5,7 +5,6 @@
 
     <button @click="getEverything" id="everything-btn" class="btn"> Get me everything! </button>
 
-
     <div class="subgenre-buttons">
     <button @click="getBio" class="btn">Biographical</button>
     <button @click="getDomestic" class="btn">Domestic Fiction</button>

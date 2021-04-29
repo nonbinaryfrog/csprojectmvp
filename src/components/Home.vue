@@ -15,6 +15,7 @@
 <script>
 export default {
   name: "Home",
+  props: ["books"],
   methods: {
     getPB() {
       this.$router.push("/books/PB");
