@@ -22,6 +22,7 @@
 
 <script>
 import BookCardView from './BookCardView';
+import axios from 'axios'
 
 export default {
   name: "YAGenres",
@@ -36,41 +37,84 @@ export default {
     }
   },
   methods: {
-    // take a subgenre argument
-    getFantasy() {
-      // filter the results based on what the subgenre is
-      let fantasyBooks = this.books.filter(books => books.subgenre[0] === 'Fantasy');
-        if (fantasyBooks.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = fantasyBooks;
-      }       
+    async getFantasy() {
+      try {
+        let fantasyBooks = await axios.get('http://localhost:3000/books/YA/Fantasy', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'YA',
+            subgenre: 'Fantasy'
+          }
+        })
+        if (fantasyBooks.length >= 1) {
+          this.filteredBooks = fantasyBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getRomCom() {
-      // filter the results based on what the subgenre is
-        let romCom = this.books.filter(books => books.subgenre[0] === 'Rom-com');
-        if (romCom.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = romCom;
-      }        
+    async getRomCom() {
+      try {
+        let romcomBooks = await axios.get('http://localhost:3000/books/YA/Rom-com', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'YA',
+            subgenre: 'Rom-com'
+          }
+        })
+        if (romcomBooks.length >= 1) {
+          this.filteredBooks = romcomBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getHorror() {
-      // filter the results based on what the subgenre is
-      let horrorBooks = this.books.filter(books => books.subgenre[0] === 'Horror')
-      // if there is nothing in the array, push the error page to router view
-      if (horrorBooks.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = horrorBooks;
-      }    
+    async getHorror() {
+      try {
+        let horrorBooks = await axios.get('http://localhost:3000/books/YA/Horror', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'YA',
+            subgenre: 'Horror'
+          }
+        })
+        if (horrorBooks.length >= 1) {
+          this.filteredBooks = horrorBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getEverything() {
-      this.filteredBooks = this.books;  
-    },
+    async getEverything() {
+      try {
+        let yaBooks = await axios.get('http://localhost:3000/books/YA', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'YA'
+          }
+        })
+        if (yaBooks.length >= 1) {
+          this.filteredBooks = yaBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
+    }
   }
 };
 

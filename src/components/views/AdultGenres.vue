@@ -22,6 +22,7 @@
 
 <script>
 import BookCardView from "./BookCardView";
+import axios from 'axios'
 
 export default {
   name: "AdultGenres",
@@ -36,43 +37,85 @@ export default {
     }
   },
   methods: {
-    // take a subgenre argument
-    getDomestic() {
-      // filter the results based on what the subgenre is
-        let domesticFic = this.books.filter(books => books.subgenre[0] === 'Domestic Fiction');
-        if (domesticFic.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = domesticFic;
-      }        
+
+    async getDomestic() {
+      try {
+        let domesticBooks = await axios.get('http://localhost:3000/books/A/Domestic%20Fiction', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'YA',
+            subgenre: 'Domestic Fiction'
+          }
+        })
+        if (domesticBooks) {
+          this.filteredBooks = domesticBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getScifi() {
-      // filter the results based on what the subgenre is
-      let scifiBooks = this.books.filter(books => books.subgenre[0] === 'Science Fiction')
-      // if there is nothing in the array, push the error page to router view
-      if (scifiBooks.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = scifiBooks;
-      }    
+    async getScifi() {
+      try {
+        let scifiBooks = await axios.get('http://localhost:3000/books/A/Science%20Fiction', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'A',
+            subgenre: 'Science Fiction'
+          }
+        })
+        if (scifiBooks) {
+          this.filteredBooks = scifiBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getHorror() {
-      // filter the results based on what the subgenre is
-      let horrorBooks = this.books.filter(books => books.subgenre[0] === 'Horror')
-      // if there is nothing in the array, push the error page to router view
-      if (horrorBooks.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = horrorBooks;
-      }    
+    async getHorror() {
+      try {
+        let horrorBooks = await axios.get('http://localhost:3000/books/A/Horror', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'A',
+            subgenre: 'Horror'
+          }
+        })
+        if (horrorBooks) {
+          this.filteredBooks = horrorBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getEverything() {
-      console.log(this.books[0].title)
-      this.filteredBooks = this.books;  
-    },
+    async getEverything() {
+      try {
+        let aBooks = await axios.get('http://localhost:3000/books/A', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'A'
+          }
+        })
+        if (aBooks) {
+          this.filteredBooks = aBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
+    }
   }
 };
 </script>

@@ -36,58 +36,66 @@ export default {
     }
   },
   methods: {
-    // take a subgenre argument
-    getBio() {
-      // filter the results based on what the subgenre is
-      let bioBooks = this.books.filter(books => books.subgenre[0] === 'Biographical');
-        if (bioBooks.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = bioBooks;
-      }       
+
+    async getBio() {
+      try {
+        let bioBooks = await axios.get('http://localhost:3000/books/PB/Biographical', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'PB',
+            subgenre: 'Biographical'
+          }
+        })
+        if (bioBooks.length >= 1) {
+          this.filteredBooks = bioBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getDomestic() {
-      // filter the results based on what the subgenre is
-        let domesticFic = this.books.filter(books => books.subgenre[0] === 'Domestic Fiction');
-        if (domesticFic.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = domesticFic;
-      }        
+    async getDomestic() {
+      try {
+        let domesticBooks = await axios.get('http://localhost:3000/books/PB/Domestic', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'PB',
+            subgenre: 'Domestic'
+          }
+        })
+        if (domesticBooks.length >= 1) {
+          this.filteredBooks = domesticBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
 
-    getAdventure() {
-      // filter the results based on what the subgenre is
-      let adventureBooks = this.books.filter(books => books.subgenre[0] === 'Adventure')
-      // if there is nothing in the array, push the error page to router view
-      if (adventureBooks.length === 0) {
-        this.$router.push("/Error");
-      } else {
-        this.filteredBooks = adventureBooks;
-      }    
+    async getAdventure() {
+      try {
+        let advenBooks = await axios.get('http://localhost:3000/books/PB/Adventure', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          params: {
+            genre: 'PB',
+            subgenre: 'Adventure'
+          }
+        })
+        if (advenBooks.length >= 1) {
+          this.filteredBooks = advenBooks.data;
+        } else {
+          this.$router.push('/Error');
+        }
+      } catch (err) {
+        console.log(`Network error: ${err.message}`)
+      }
     },
-
-    // async getAdventure() {
-    //   try {
-    //     let advenBooks = await axios.get('http://localhost:3000/books/PB', {
-    //       method: 'GET',
-    //       headers: {'Content-Type': 'application/json'},
-    //       params: {
-    //         genre: 'PB',
-    //         subgenre: 'Adventure'
-    //       }
-    //     })
-    //     if (advenBooks) {
-    //       console.log(advenBooks.data)
-    //     } else {
-    //       this.$router.push('/Error');
-    //     }
-    //   } catch (err) {
-    //     console.log(`Network error: ${err.message}`)
-    //   }
-    // },
-
 
     async getEverything() {
       try {
@@ -98,7 +106,7 @@ export default {
             genre: 'PB'
           }
         })
-        if (pbBooks) {
+        if (pbBooks.length >= 1) {
           this.filteredBooks = pbBooks.data;
         } else {
           this.$router.push('/Error');

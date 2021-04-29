@@ -33,10 +33,9 @@ exports.get_some_books = async function (req, res) {
 exports.get_these_books = async function (req, res) {
   let { genre, subgenre } = req.params;
   try {
-    let books = await Book.find({"genre": genre});
+    let books = await Book.find({"genre": genre, "subgenre": {$all: [subgenre]}});
     if (books) {
       res.json(books)
-      // iterate over array in object
     } else {
       res.status(404).send({error: 'Not Found'});
     }
