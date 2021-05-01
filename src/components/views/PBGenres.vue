@@ -46,7 +46,7 @@ export default {
             subgenre: 'Biographical'
           }
         })
-        if (bioBooks.length >= 1) {
+        if (bioBooks) {
           this.filteredBooks = bioBooks.data;
         } else {
           this.$router.push('/Error');
@@ -66,7 +66,7 @@ export default {
             subgenre: 'Domestic'
           }
         })
-        if (domesticBooks.length >= 1) {
+        if (domesticBooks) {
           this.filteredBooks = domesticBooks.data;
         } else {
           this.$router.push('/Error');
@@ -86,7 +86,7 @@ export default {
             subgenre: 'Adventure'
           }
         })
-        if (advenBooks.length >= 1) {
+        if (advenBooks) {
           this.filteredBooks = advenBooks.data;
         } else {
           this.$router.push('/Error');
@@ -105,7 +105,7 @@ export default {
             genre: 'PB'
           }
         })
-        if (pbBooks.length >= 1) {
+        if (pbBooks) {
           this.filteredBooks = pbBooks.data;
         } else {
           this.$router.push('/Error');

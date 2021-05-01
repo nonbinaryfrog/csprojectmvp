@@ -47,7 +47,7 @@ export default {
             subgenre: 'Fantasy'
           }
         })
-        if (fantasyBooks.length >= 1) {
+        if (fantasyBooks) {
           this.filteredBooks = fantasyBooks.data;
         } else {
           this.$router.push('/Error');
@@ -67,7 +67,7 @@ export default {
             subgenre: 'Rom-com'
           }
         })
-        if (romcomBooks.length >= 1) {
+        if (romcomBooks) {
           this.filteredBooks = romcomBooks.data;
         } else {
           this.$router.push('/Error');
@@ -87,7 +87,7 @@ export default {
             subgenre: 'Horror'
           }
         })
-        if (horrorBooks.length >= 1) {
+        if (horrorBooks) {
           this.filteredBooks = horrorBooks.data;
         } else {
           this.$router.push('/Error');
@@ -106,7 +106,7 @@ export default {
             genre: 'YA'
           }
         })
-        if (yaBooks.length >= 1) {
+        if (yaBooks) {
           this.filteredBooks = yaBooks.data;
         } else {
           this.$router.push('/Error');
