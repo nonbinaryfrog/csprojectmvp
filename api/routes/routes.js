@@ -14,6 +14,6 @@ let router = require('express').Router();
   router.get('/books/:genre/:subgenre', bookBuilder.get_these_books)
 
   // make a new book entry
-  router.post(bookBuilder.create_a_book);
+  router.post('/Submit', bookBuilder.create_a_book);
 
 module.exports = router;
