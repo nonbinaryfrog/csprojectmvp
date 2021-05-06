@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "SubmitForm",
   props: {
@@ -42,16 +44,26 @@ export default {
     };
   },
   methods: {
-      // on submit, the information needs to go to the submissions collection
-      // so change this when you figure out how to do that!
-    onSubmit: function() {
-      if (this.authorName === '' || this.bookTitle === '') {
-        this.errorsPresent = true;
-      } else {
-        console.log(this.authorName, this.bookTitle);
-        this.$emit('createOrUpdate', this.submission);
-        // this.authorName = '';
-        // this.bookTitle = '';
+      // on submit, the information goes to the submissions collection
+    async onSubmit() {
+      try {
+        if (this.authorName === '' || this.bookTitle === '') {
+          this.errorsPresent = true;
+        } else {
+          await axios.post('http://localhost:3000/Submit', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            params: {
+              author: this.authorName,
+              title: this.bookTitle
+            }
+          })
+          console.log(this.authorName, this.bookTitle);
+          this.authorName = '';
+          this.bookTitle = '';
+        }
+      } catch(err) {
+        console.log(`Network Error: ${err.message}`)
       }
     }
   }
