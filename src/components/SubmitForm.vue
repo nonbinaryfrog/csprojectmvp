@@ -54,7 +54,7 @@ export default {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             params: {
-              author: this.authorName,
+              author: [this.authorName],
               title: this.bookTitle
             }
           })

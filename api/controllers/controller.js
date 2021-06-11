@@ -46,15 +46,16 @@ exports.get_these_books = async function (req, res) {
   }
 }
 
-// when a person fills out the submission form to submit this will be called upon
+// submitting a book to be added to the collection
 exports.create_a_book = (req, res) => {
-  const newBook = new submit(req.body);
+  // consider changing code to req.params
+  const newBook = new submit(req.params);
   newBook.save((err, book) => {
     if (err) {
       res.send(err);
     } else {
       // res.json(book);
-      res.send(book);
+      res.insertOne(book);
     }
   });
 };
