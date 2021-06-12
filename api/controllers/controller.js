@@ -48,7 +48,8 @@ exports.get_these_books = async function (req, res) {
 
 // when a person fills out the submission form to submit this will be called upon
 exports.create_a_book = (req, res) => {
-  const newBook = new submit(req.body);
+  let { author, title } = req.body;
+  const newBook = new submit({"author": author, "title": title});
   newBook.save((err, book) => {
     if (err) {
       res.send(err);
