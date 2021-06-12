@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const book = mongoose.model('books');
 const submit = mongoose.model('submissions');
 
-// code below is redundant, consider getting rid of it
-// let Book = require('../models/model');
-
 // getting all books
 exports.list_all_books = async function (req, res) {
     try {
@@ -47,16 +44,16 @@ exports.get_these_books = async function (req, res) {
 }
 
 // submitting a book to be added to the collection
-exports.create_a_book = (req, res) => {
-  // consider changing code to req.params
-  const newBook = new submit(req.params);
-  newBook.save((err, book) => {
+exports.create_a_book = async function (req, res) {
+  let { author, title } = req.body;
+  var newBook = new submit({"author": author, "title": title});
+  newBook.save((err, result) => {
     if (err) {
       res.send(err);
     } else {
-      // res.json(book);
-      res.insertOne(book);
+      res.send(result);
     }
-  });
+  })
+
 };
 

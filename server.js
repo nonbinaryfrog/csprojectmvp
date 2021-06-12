@@ -3,7 +3,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv').config();
-require('./api/models/model');
+require('./api/models/bookmodel');
+require('./api/models/submitmodel');
 const routes = require('./api/routes/routes');
 
 if (dotenv.error) {

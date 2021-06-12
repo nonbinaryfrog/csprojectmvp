@@ -53,7 +53,7 @@ export default {
           await axios.post('http://localhost:3000/Submit', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            params: {
+            body: {
               author: [this.authorName],
               title: this.bookTitle
             }
