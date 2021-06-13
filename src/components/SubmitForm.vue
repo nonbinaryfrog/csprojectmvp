@@ -41,8 +41,8 @@ export default {
   data() {
     return {
       errorsPresent: false,
-      authorName: '',
-      bookTitle: '',
+      authorName: this.authorName,
+      bookTitle: this.bookTitle,
       submissionReceived: false
     };
   },
@@ -57,17 +57,18 @@ export default {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: {
-              author: this.authorName,
-              title: this.bookTitle
+              "author": this.authorName,
+              "title": this.bookTitle
             }
           })
+          this.submissionReceived = true;
         }
-        this.submissionReceived = true;
+        this.authorName = '';
+        this.bookTitle = '';
       } catch(err) {
         console.log(`Network Error: ${err.message}`)
       }
-      this.authorName = '';
-      this.bookTitle = '';
+
     }
   }
 };
