@@ -15,6 +15,8 @@
       </div>
 
       <button>Submit</button>
+
+      <p v-if="submissionReceived"> Submission received!</p>
     </form>
   </div>
 </template>
@@ -40,7 +42,8 @@ export default {
     return {
       errorsPresent: false,
       authorName: '',
-      bookTitle: ''
+      bookTitle: '',
+      submissionReceived: false
     };
   },
   methods: {
@@ -54,17 +57,17 @@ export default {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: {
-              author: [this.authorName],
+              author: this.authorName,
               title: this.bookTitle
             }
           })
-          console.log(this.authorName, this.bookTitle);
-          this.authorName = '';
-          this.bookTitle = '';
         }
+        this.submissionReceived = true;
       } catch(err) {
         console.log(`Network Error: ${err.message}`)
       }
+      this.authorName = '';
+      this.bookTitle = '';
     }
   }
 };
