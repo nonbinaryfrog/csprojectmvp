@@ -1,7 +1,7 @@
 // require mongoose to create a model for the books
 const mongoose = require('mongoose');
 const book = mongoose.model('books');
-const submit = mongoose.model('submissions');
+let submitModel = require("../models/submitmodel");
 
 // getting all books
 exports.list_all_books = async function (req, res) {
@@ -44,15 +44,17 @@ exports.get_these_books = async function (req, res) {
 }
 
 // submitting a book to be added to the collection
-exports.create_a_book = async function (req, res) {
+exports.create_a_book = (req, res) => {
   let { author, title } = req.body;
-  var newBook = new submit({"author": author, "title": title});
-  newBook.save((err, result) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(result);
-    }
+  let entry = new submitModel({
+    author: author,
+    title: title
+  })
+  entry.save().then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.log(err)
   })
 
 };
