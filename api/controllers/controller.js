@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const book = mongoose.model('books');
 let submitModel = require("../models/submitmodel");
 
-// getting all books
+// GET all books
 exports.list_all_books = async function (req, res) {
     try {
         let books = await book.find({});
@@ -13,7 +13,7 @@ exports.list_all_books = async function (req, res) {
     }
 }
 
-// getting book by genre
+// GET book by genre
 exports.get_some_books = async function (req, res) {
   let { genre } = req.params;
   try {
@@ -28,7 +28,7 @@ exports.get_some_books = async function (req, res) {
   }
 }
 
-// getting book by genre & subgenre
+// GET book by genre & subgenre
 exports.get_these_books = async function (req, res) {
   let { genre, subgenre } = req.params;
   try {
@@ -43,18 +43,14 @@ exports.get_these_books = async function (req, res) {
   }
 }
 
-// submitting a book to be added to the collection
+// POST book to submissions collection
 exports.create_a_book = (req, res) => {
-  let { author, title } = req.body;
-  let entry = new submitModel({
-    author: author,
-    title: title
-  })
-  entry.save().then(doc => {
-    console.log(doc)
+  let { "author": author, "title": title } = req.body;
+  new submitModel({ author, title}).save().then(doc => {
+    res.send(doc)
   })
   .catch(err => {
-    console.log(err)
+    res.send(err)
   })
 
 };
