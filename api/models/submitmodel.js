@@ -6,11 +6,9 @@ const submitSchema = new Schema(
     {
       author: {
         type: Array,
-        required: true
       },
       title: {
         type: String,
-        required: true
       },
     },
   
