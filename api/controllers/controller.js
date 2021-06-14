@@ -13,6 +13,17 @@ exports.list_all_books = async function (req, res) {
     }
 }
 
+// GET books by author
+// exports.list_author_books = async function (req, res) {
+//   let { author } = req.params;
+//   try {
+//       let books = await book.find({"author": author});
+//       res.json(books);
+//   } catch (err) {
+//       res.status(500).send({ error: 'Something went wrong here.' });
+//   }
+// }
+
 // GET book by genre
 exports.get_some_books = async function (req, res) {
   let { genre } = req.params;
@@ -24,7 +35,7 @@ exports.get_some_books = async function (req, res) {
       res.status(404).send({error: 'Not Found'});
     }
   } catch (err) {
-    res.status(500).send({error: err.message});
+    res.status(500).send({error: 'Something went wrong here.'});
   }
 }
 
@@ -39,7 +50,7 @@ exports.get_these_books = async function (req, res) {
       res.status(404).send({error: 'Sorry! Not Found'});
     }
   } catch (err) {
-    res.status(500).send({error: err.message});
+    res.status(500).send({error: 'Something went wrong here.'});
   }
 }
 
