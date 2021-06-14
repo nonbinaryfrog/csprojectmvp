@@ -53,11 +53,12 @@ export default {
         if (this.authorName === '' || this.bookTitle === '') {
           this.errorsPresent = true;
         } else {
-          await axios.post('http://localhost:3000/Submit', {
+          await axios({
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: {
-              "author": this.authorName,
+            url: 'http://localhost:3000/Submit',
+            data: {
+              "author": [this.authorName],
               "title": this.bookTitle
             }
           })
