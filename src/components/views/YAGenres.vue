@@ -53,6 +53,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     },
@@ -73,6 +74,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     },
@@ -93,6 +95,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     },
@@ -112,6 +115,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     }

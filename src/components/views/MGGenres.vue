@@ -37,17 +37,6 @@ export default {
     }
   },
   methods: {
-    // take a subgenre argument
-    // getGhost() {
-    //   // filter the results based on what the subgenre is
-    //   let ghostBooks = this.books.filter(books => books.subgenre[0] === 'Ghost Story');
-    //     if (ghostBooks.length === 0) {
-    //     this.$router.push("/Error");
-    //   } else {
-    //     this.filteredBooks = ghostBooks;
-    //   }       
-    // },
-
     async getGhost() {
       try {
         let ghostBooks = await axios.get('http://localhost:3000/books/MG/Ghost%20Story', {
@@ -64,6 +53,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     },
@@ -84,6 +74,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     },
@@ -105,6 +96,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     },
@@ -125,6 +117,7 @@ export default {
           this.$router.push('/Error');
         }
       } catch (err) {
+        this.$router.push("/ServerError")
         console.log(`Network error: ${err.message}`)
       }
     }

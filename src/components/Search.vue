@@ -34,6 +34,25 @@ export default {
         };
     },
 
+    // methods: {
+    //   async getBook() {
+    //   try {
+    //     let book = await axios.get('http://localhost:3000/books/YA/Fantasy', {
+    //       method: 'GET',
+    //       headers: {'Content-Type': 'application/json'},
+    //     })
+    //     if (book) {
+    //       this.filteredBooks = book.data;
+    //     } else {
+    //       this.$router.push('/Error');
+    //     }
+    //   } catch (err) {
+    //     this.$router.push("/ServerError")
+    //     console.log(`Network error: ${err.message}`)
+    //   }
+    // }
+    // },
+
     computed: {
         filterList() {
             if (this.search !== "") {
